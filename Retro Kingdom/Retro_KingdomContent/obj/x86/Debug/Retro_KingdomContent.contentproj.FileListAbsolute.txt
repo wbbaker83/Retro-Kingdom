@@ -1,2 +1,3 @@
 R:\Programming\_C#\My Projects\XNA\Retro Kingdom\Retro Kingdom\Retro_KingdomContent\obj\x86\Debug\Retro_KingdomContent.contentprojResolveAssemblyReference.cache
 R:\Programming\_C#\My Projects\Games\XNA\Retro Kingdom\Retro Kingdom\Retro_KingdomContent\obj\x86\Debug\Retro_KingdomContent.contentprojResolveAssemblyReference.cache
+R:\Programming\GitHub\Retro-Kingdom\Retro Kingdom\Retro_KingdomContent\obj\x86\Debug\Retro_KingdomContent.contentprojResolveAssemblyReference.cache

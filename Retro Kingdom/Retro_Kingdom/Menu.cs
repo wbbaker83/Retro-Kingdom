@@ -44,6 +44,12 @@ namespace Retro_Kingdom
             set;
         }
 
+        public int NeedsToUpdate
+        {
+            get;
+            set;
+        }
+
         public Main MainGameState
         {
             get;
@@ -93,12 +99,19 @@ namespace Retro_Kingdom
             this.MainGameState = main;
             this.NextOpenButtonPosition = new Vector2((MainGameState.GraphicsDevice.Viewport.Width / 2) - (BUTTON_WIDTH / 2), (MainGameState.GraphicsDevice.Viewport.Height / 3));
             this.MenuID = id;
+            this.NeedsToUpdate = -1;
 
             this.SetMenu();
         }
 
         public void Update(KeyboardState okbs, KeyboardState ckbs, MouseState oms, MouseState cms, GamePadState ogps, GamePadState cgps)
         {
+            if (NeedsToUpdate > -1)
+            {
+                this.MenuID = this.NeedsToUpdate;
+                this.ConfirmSelection();
+                this.NeedsToUpdate = -1;
+            }
             if (ckbs.IsKeyDown(Keys.S) == true && okbs.IsKeyDown(Keys.S) != true)
             {
                 if (this.SelectedButtonIndex + 1 >= this.ButtonNames.Count)
@@ -151,6 +164,7 @@ namespace Retro_Kingdom
             }
 
             int cnt = 0;
+
             foreach (Rectangle r in this.ButtonBoxes)
             {
                 if (r.Intersects(new Rectangle(cms.X, cms.Y, 1, 1)) == true)// && okbs == ckbs)
@@ -163,7 +177,7 @@ namespace Retro_Kingdom
                     }
                     if (cms.LeftButton == ButtonState.Pressed && oms.LeftButton != ButtonState.Pressed)
                     {
-                        this.ConfirmSelection();
+                        this.NeedsToUpdate = 3;
                         this.SelectedButtonIndex = 0;
                     }
                 }
@@ -183,7 +197,7 @@ namespace Retro_Kingdom
                 spriteBatch.Draw(this.LoadedTextures[2], new Rectangle(0, 0, MainGameState.GraphicsDevice.Viewport.Width, MainGameState.GraphicsDevice.Viewport.Height), null, Color.White, 0, new Vector2(0, 0), SpriteEffects.None, 0);
 
             }
-            else if (this.MenuID == 1)
+            else 
             {
                 spriteBatch.Draw(this.LoadedTextures[1], new Rectangle(0, 0, MainGameState.GraphicsDevice.Viewport.Width, MainGameState.GraphicsDevice.Viewport.Height), null, Color.Black, 0, new Vector2(0, 0), SpriteEffects.None, 0);
             }
@@ -232,10 +246,17 @@ namespace Retro_Kingdom
 
         private void ConfirmSelection()
         {
+
             switch (this.SelectedButtonName)
             {
                 case "Return To Start Menu":
+                    this.MenuID = 0;
+                    this.SetMenu();
                     this.MainGameState.GameStatus = Main.GAME_STATUS_STARTMENU;
+                    break;
+                case "Video":
+                    this.MenuID = 3;
+                    this.SetMenu();
                     break;
                 case "Start RTS":
                     this.MainGameState.GameStatus = Main.GAME_STATUS_GAME_RTS_RUNNING;
@@ -260,6 +281,12 @@ namespace Retro_Kingdom
                 case "FullScreen On/Off":
                     this.MainGameState.ToggleFullScreen();
                     break;
+                case "1920 x 1080":
+                    this.MainGameState.ChangeResolution(1920, 1080);
+                    break;
+                case "1280 x 720":
+                    this.MainGameState.ChangeResolution(1280, 720);
+                    break;
                 case "Exit To Desktop":
                     this.MainGameState.Exit();
                     break;
@@ -274,6 +301,7 @@ namespace Retro_Kingdom
             this.ButtonNames.Clear();
             this.MenuMoveSound = new GameSoundEffect(0);
             this.SelectedButtonIndex = 0;
+            this.NextOpenButtonPosition = new Vector2((MainGameState.GraphicsDevice.Viewport.Width / 2) - (BUTTON_WIDTH / 2), (MainGameState.GraphicsDevice.Viewport.Height / 3));
 
             switch (this.MenuID)
             {
@@ -281,7 +309,7 @@ namespace Retro_Kingdom
                     AddButton("Start RTS");
                     this.SelectedButtonName = "Start RTS";
                     AddButton("Start SideScroller");
-                    AddButton("FullScreen On/Off");
+                    AddButton("Video");
                     AddButton("Exit To Desktop");
                     break;
                 case 1:// RTS Menu
@@ -299,6 +327,13 @@ namespace Retro_Kingdom
                     AddButton("FullScreen On/Off");
                     AddButton("Return To Start Menu");
                     AddButton("Exit To Desktop");
+                    break;
+                case 3:// Video
+                    AddButton("Return To Start Menu");
+                    this.SelectedButtonName = "Return to Start Menu";
+                    AddButton("FullScreen On/Off");
+                    AddButton("1920 x 1080");
+                    AddButton("1280 x 720");
                     break;
             }
         }

@@ -52,3 +52,31 @@ R:\Programming\_C#\My Projects\Games\XNA\Retro Kingdom\Retro Kingdom\Retro_Kingd
 R:\Programming\_C#\My Projects\Games\XNA\Retro Kingdom\Retro Kingdom\Retro_Kingdom\bin\x86\Debug\Microsoft.Xna.Framework.GamerServices.xml
 R:\Programming\_C#\My Projects\Games\XNA\Retro Kingdom\Retro Kingdom\Retro_Kingdom\bin\x86\Debug\Microsoft.Xna.Framework.Input.Touch.xml
 R:\Programming\_C#\My Projects\Games\XNA\Retro Kingdom\Retro Kingdom\Retro_Kingdom\bin\x86\Debug\Content\Resources\textures\titlemenu.xnb
+R:\Programming\GitHub\Retro-Kingdom\Retro Kingdom\Retro_Kingdom\bin\x86\Debug\Game.ico
+R:\Programming\GitHub\Retro-Kingdom\Retro Kingdom\Retro_Kingdom\bin\x86\Debug\Content\Resources\textures\soldier_paper.xnb
+R:\Programming\GitHub\Retro-Kingdom\Retro Kingdom\Retro_Kingdom\bin\x86\Debug\Content\Resources\textures\soldier_rock.xnb
+R:\Programming\GitHub\Retro-Kingdom\Retro Kingdom\Retro_Kingdom\bin\x86\Debug\Content\Resources\textures\startscreen.xnb
+R:\Programming\GitHub\Retro-Kingdom\Retro Kingdom\Retro_Kingdom\bin\x86\Debug\Content\Resources\textures\white_sq.xnb
+R:\Programming\GitHub\Retro-Kingdom\Retro Kingdom\Retro_Kingdom\bin\x86\Debug\Content\Resources\textures\base_paper.xnb
+R:\Programming\GitHub\Retro-Kingdom\Retro Kingdom\Retro_Kingdom\bin\x86\Debug\Content\Resources\textures\base_rock.xnb
+R:\Programming\GitHub\Retro-Kingdom\Retro Kingdom\Retro_Kingdom\bin\x86\Debug\Content\Resources\textures\base_scissor.xnb
+R:\Programming\GitHub\Retro-Kingdom\Retro Kingdom\Retro_Kingdom\bin\x86\Debug\Content\Resources\textures\black_sq.xnb
+R:\Programming\GitHub\Retro-Kingdom\Retro Kingdom\Retro_Kingdom\bin\x86\Debug\Content\Resources\textures\titlemenu.xnb
+R:\Programming\GitHub\Retro-Kingdom\Retro Kingdom\Retro_Kingdom\bin\x86\Debug\Content\Resources\spritefonts\ArialBlack_10pt.xnb
+R:\Programming\GitHub\Retro-Kingdom\Retro Kingdom\Retro_Kingdom\bin\x86\Debug\Content\Resources\sounds\menu_move.xnb
+R:\Programming\GitHub\Retro-Kingdom\Retro Kingdom\Retro_Kingdom\bin\x86\Debug\Retro_Kingdom.exe
+R:\Programming\GitHub\Retro-Kingdom\Retro Kingdom\Retro_Kingdom\bin\x86\Debug\Retro_Kingdom.pdb
+R:\Programming\GitHub\Retro-Kingdom\Retro Kingdom\Retro_Kingdom\bin\x86\Debug\Microsoft.Xna.Framework.dll
+R:\Programming\GitHub\Retro-Kingdom\Retro Kingdom\Retro_Kingdom\bin\x86\Debug\Microsoft.Xna.Framework.Game.dll
+R:\Programming\GitHub\Retro-Kingdom\Retro Kingdom\Retro_Kingdom\bin\x86\Debug\Microsoft.Xna.Framework.GamerServices.dll
+R:\Programming\GitHub\Retro-Kingdom\Retro Kingdom\Retro_Kingdom\bin\x86\Debug\Microsoft.Xna.Framework.Graphics.dll
+R:\Programming\GitHub\Retro-Kingdom\Retro Kingdom\Retro_Kingdom\bin\x86\Debug\Microsoft.Xna.Framework.Input.Touch.dll
+R:\Programming\GitHub\Retro-Kingdom\Retro Kingdom\Retro_Kingdom\bin\x86\Debug\Microsoft.Xna.Framework.xml
+R:\Programming\GitHub\Retro-Kingdom\Retro Kingdom\Retro_Kingdom\bin\x86\Debug\Microsoft.Xna.Framework.Game.xml
+R:\Programming\GitHub\Retro-Kingdom\Retro Kingdom\Retro_Kingdom\bin\x86\Debug\Microsoft.Xna.Framework.Graphics.xml
+R:\Programming\GitHub\Retro-Kingdom\Retro Kingdom\Retro_Kingdom\bin\x86\Debug\Microsoft.Xna.Framework.GamerServices.xml
+R:\Programming\GitHub\Retro-Kingdom\Retro Kingdom\Retro_Kingdom\bin\x86\Debug\Microsoft.Xna.Framework.Input.Touch.xml
+R:\Programming\GitHub\Retro-Kingdom\Retro Kingdom\Retro_Kingdom\obj\x86\Debug\Retro_Kingdom.csprojResolveAssemblyReference.cache
+R:\Programming\GitHub\Retro-Kingdom\Retro Kingdom\Retro_Kingdom\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+R:\Programming\GitHub\Retro-Kingdom\Retro Kingdom\Retro_Kingdom\obj\x86\Debug\Retro_Kingdom.exe
+R:\Programming\GitHub\Retro-Kingdom\Retro Kingdom\Retro_Kingdom\obj\x86\Debug\Retro_Kingdom.pdb

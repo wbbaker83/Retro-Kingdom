@@ -162,5 +162,12 @@ namespace Retro_Kingdom
         {
             graphics.ToggleFullScreen();
         }
+
+        public void ChangeResolution(int width, int height)
+        {
+            graphics.PreferredBackBufferWidth = width;
+            graphics.PreferredBackBufferHeight = height;
+            graphics.ApplyChanges();
+        }
     }
 }

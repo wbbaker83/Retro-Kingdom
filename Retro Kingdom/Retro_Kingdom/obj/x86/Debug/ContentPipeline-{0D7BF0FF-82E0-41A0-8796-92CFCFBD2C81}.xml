@@ -7,7 +7,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>R:\Programming\_C#\My Projects\Games\XNA\Retro Kingdom\Retro Kingdom\Retro_Kingdom\bin\x86\Debug\Content\Resources\textures\soldier_paper.xnb</Output>
+      <Output>R:\Programming\GitHub\Retro-Kingdom\Retro Kingdom\Retro_Kingdom\bin\x86\Debug\Content\Resources\textures\soldier_paper.xnb</Output>
       <Time>2016-07-07T13:09:15.2505824-04:00</Time>
     </Item>
     <Item>
@@ -16,7 +16,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>R:\Programming\_C#\My Projects\Games\XNA\Retro Kingdom\Retro Kingdom\Retro_Kingdom\bin\x86\Debug\Content\Resources\textures\soldier_rock.xnb</Output>
+      <Output>R:\Programming\GitHub\Retro-Kingdom\Retro Kingdom\Retro_Kingdom\bin\x86\Debug\Content\Resources\textures\soldier_rock.xnb</Output>
       <Time>2016-07-07T13:09:15.2662107-04:00</Time>
     </Item>
     <Item>
@@ -25,7 +25,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>R:\Programming\_C#\My Projects\Games\XNA\Retro Kingdom\Retro Kingdom\Retro_Kingdom\bin\x86\Debug\Content\Resources\textures\startscreen.xnb</Output>
+      <Output>R:\Programming\GitHub\Retro-Kingdom\Retro Kingdom\Retro_Kingdom\bin\x86\Debug\Content\Resources\textures\startscreen.xnb</Output>
       <Time>2016-07-07T13:09:15.2818317-04:00</Time>
     </Item>
     <Item>
@@ -34,7 +34,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>R:\Programming\_C#\My Projects\Games\XNA\Retro Kingdom\Retro Kingdom\Retro_Kingdom\bin\x86\Debug\Content\Resources\textures\white_sq.xnb</Output>
+      <Output>R:\Programming\GitHub\Retro-Kingdom\Retro Kingdom\Retro_Kingdom\bin\x86\Debug\Content\Resources\textures\white_sq.xnb</Output>
       <Time>2016-07-07T13:09:15.2974566-04:00</Time>
     </Item>
     <Item>
@@ -43,7 +43,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>R:\Programming\_C#\My Projects\Games\XNA\Retro Kingdom\Retro Kingdom\Retro_Kingdom\bin\x86\Debug\Content\Resources\textures\base_paper.xnb</Output>
+      <Output>R:\Programming\GitHub\Retro-Kingdom\Retro Kingdom\Retro_Kingdom\bin\x86\Debug\Content\Resources\textures\base_paper.xnb</Output>
       <Time>2016-07-07T13:10:13.9812795-04:00</Time>
     </Item>
     <Item>
@@ -52,7 +52,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>R:\Programming\_C#\My Projects\Games\XNA\Retro Kingdom\Retro Kingdom\Retro_Kingdom\bin\x86\Debug\Content\Resources\textures\base_rock.xnb</Output>
+      <Output>R:\Programming\GitHub\Retro-Kingdom\Retro Kingdom\Retro_Kingdom\bin\x86\Debug\Content\Resources\textures\base_rock.xnb</Output>
       <Time>2016-07-07T13:10:14.0125293-04:00</Time>
     </Item>
     <Item>
@@ -61,7 +61,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>R:\Programming\_C#\My Projects\Games\XNA\Retro Kingdom\Retro Kingdom\Retro_Kingdom\bin\x86\Debug\Content\Resources\textures\base_scissor.xnb</Output>
+      <Output>R:\Programming\GitHub\Retro-Kingdom\Retro Kingdom\Retro_Kingdom\bin\x86\Debug\Content\Resources\textures\base_scissor.xnb</Output>
       <Time>2016-07-07T13:10:14.0281522-04:00</Time>
     </Item>
     <Item>
@@ -70,8 +70,17 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>R:\Programming\_C#\My Projects\Games\XNA\Retro Kingdom\Retro Kingdom\Retro_Kingdom\bin\x86\Debug\Content\Resources\textures\black_sq.xnb</Output>
+      <Output>R:\Programming\GitHub\Retro-Kingdom\Retro Kingdom\Retro_Kingdom\bin\x86\Debug\Content\Resources\textures\black_sq.xnb</Output>
       <Time>2016-07-07T13:10:14.0437751-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Resources\textures\titlemenu.png</Source>
+      <Name>Resources\textures\titlemenu</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>R:\Programming\GitHub\Retro-Kingdom\Retro Kingdom\Retro_Kingdom\bin\x86\Debug\Content\Resources\textures\titlemenu.xnb</Output>
+      <Time>2016-07-07T13:53:01.3963368-04:00</Time>
     </Item>
     <Item>
       <Source>Resources\spritefonts\ArialBlack_10pt.spritefont</Source>
@@ -79,7 +88,7 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>R:\Programming\_C#\My Projects\Games\XNA\Retro Kingdom\Retro Kingdom\Retro_Kingdom\bin\x86\Debug\Content\Resources\spritefonts\ArialBlack_10pt.xnb</Output>
+      <Output>R:\Programming\GitHub\Retro-Kingdom\Retro Kingdom\Retro_Kingdom\bin\x86\Debug\Content\Resources\spritefonts\ArialBlack_10pt.xnb</Output>
       <Time>2016-07-07T13:10:44.1885755-04:00</Time>
     </Item>
     <Item>
@@ -88,17 +97,8 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>R:\Programming\_C#\My Projects\Games\XNA\Retro Kingdom\Retro Kingdom\Retro_Kingdom\bin\x86\Debug\Content\Resources\sounds\menu_move.xnb</Output>
+      <Output>R:\Programming\GitHub\Retro-Kingdom\Retro Kingdom\Retro_Kingdom\bin\x86\Debug\Content\Resources\sounds\menu_move.xnb</Output>
       <Time>2016-07-07T13:10:49.5010828-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Resources\textures\titlemenu.png</Source>
-      <Name>Resources\textures\titlemenu</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>R:\Programming\_C#\My Projects\Games\XNA\Retro Kingdom\Retro Kingdom\Retro_Kingdom\bin\x86\Debug\Content\Resources\textures\titlemenu.xnb</Output>
-      <Time>2016-07-07T13:53:01.3963368-04:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -107,10 +107,10 @@
       <TargetProfile>Reach</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>R:\Programming\_C#\My Projects\Games\XNA\Retro Kingdom\Retro Kingdom\Retro_KingdomContent\</RootDirectory>
-      <LoggerRootDirectory>R:\Programming\_C#\My Projects\Games\XNA\Retro Kingdom\Retro Kingdom\Retro_Kingdom\</LoggerRootDirectory>
-      <IntermediateDirectory>R:\Programming\_C#\My Projects\Games\XNA\Retro Kingdom\Retro Kingdom\Retro_Kingdom\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>R:\Programming\_C#\My Projects\Games\XNA\Retro Kingdom\Retro Kingdom\Retro_Kingdom\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>R:\Programming\GitHub\Retro-Kingdom\Retro Kingdom\Retro_KingdomContent\</RootDirectory>
+      <LoggerRootDirectory>R:\Programming\GitHub\Retro-Kingdom\Retro Kingdom\Retro_Kingdom\</LoggerRootDirectory>
+      <IntermediateDirectory>R:\Programming\GitHub\Retro-Kingdom\Retro Kingdom\Retro_Kingdom\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>R:\Programming\GitHub\Retro-Kingdom\Retro Kingdom\Retro_Kingdom\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
