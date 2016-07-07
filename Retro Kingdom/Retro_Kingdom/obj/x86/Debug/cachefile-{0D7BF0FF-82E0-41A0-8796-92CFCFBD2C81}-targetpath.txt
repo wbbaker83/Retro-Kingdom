@@ -1,0 +1,11 @@
+Content\Resources\textures\soldier_paper.xnb
+Content\Resources\textures\soldier_rock.xnb
+Content\Resources\textures\startscreen.xnb
+Content\Resources\textures\white_sq.xnb
+Content\Resources\textures\base_paper.xnb
+Content\Resources\textures\base_rock.xnb
+Content\Resources\textures\base_scissor.xnb
+Content\Resources\textures\black_sq.xnb
+Content\Resources\spritefonts\ArialBlack_10pt.xnb
+Content\Resources\sounds\menu_move.xnb
+Content\Resources\textures\titlemenu.xnb

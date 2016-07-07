@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
+  <Asset Type="Pipeline:BuildItemCollection">
+    <Item>
+      <Source>Resources\textures\soldier_paper.png</Source>
+      <Name>Resources\textures\soldier_paper</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>R:\Programming\_C#\My Projects\Games\XNA\Retro Kingdom\Retro Kingdom\Retro_Kingdom\bin\x86\Debug\Content\Resources\textures\soldier_paper.xnb</Output>
+      <Time>2016-07-07T13:09:15.2505824-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Resources\textures\soldier_rock.png</Source>
+      <Name>Resources\textures\soldier_rock</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>R:\Programming\_C#\My Projects\Games\XNA\Retro Kingdom\Retro Kingdom\Retro_Kingdom\bin\x86\Debug\Content\Resources\textures\soldier_rock.xnb</Output>
+      <Time>2016-07-07T13:09:15.2662107-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Resources\textures\startscreen.png</Source>
+      <Name>Resources\textures\startscreen</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>R:\Programming\_C#\My Projects\Games\XNA\Retro Kingdom\Retro Kingdom\Retro_Kingdom\bin\x86\Debug\Content\Resources\textures\startscreen.xnb</Output>
+      <Time>2016-07-07T13:09:15.2818317-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Resources\textures\white_sq.png</Source>
+      <Name>Resources\textures\white_sq</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>R:\Programming\_C#\My Projects\Games\XNA\Retro Kingdom\Retro Kingdom\Retro_Kingdom\bin\x86\Debug\Content\Resources\textures\white_sq.xnb</Output>
+      <Time>2016-07-07T13:09:15.2974566-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Resources\textures\base_paper.png</Source>
+      <Name>Resources\textures\base_paper</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>R:\Programming\_C#\My Projects\Games\XNA\Retro Kingdom\Retro Kingdom\Retro_Kingdom\bin\x86\Debug\Content\Resources\textures\base_paper.xnb</Output>
+      <Time>2016-07-07T13:10:13.9812795-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Resources\textures\base_rock.png</Source>
+      <Name>Resources\textures\base_rock</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>R:\Programming\_C#\My Projects\Games\XNA\Retro Kingdom\Retro Kingdom\Retro_Kingdom\bin\x86\Debug\Content\Resources\textures\base_rock.xnb</Output>
+      <Time>2016-07-07T13:10:14.0125293-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Resources\textures\base_scissor.png</Source>
+      <Name>Resources\textures\base_scissor</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>R:\Programming\_C#\My Projects\Games\XNA\Retro Kingdom\Retro Kingdom\Retro_Kingdom\bin\x86\Debug\Content\Resources\textures\base_scissor.xnb</Output>
+      <Time>2016-07-07T13:10:14.0281522-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Resources\textures\black_sq.png</Source>
+      <Name>Resources\textures\black_sq</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>R:\Programming\_C#\My Projects\Games\XNA\Retro Kingdom\Retro Kingdom\Retro_Kingdom\bin\x86\Debug\Content\Resources\textures\black_sq.xnb</Output>
+      <Time>2016-07-07T13:10:14.0437751-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Resources\spritefonts\ArialBlack_10pt.spritefont</Source>
+      <Name>Resources\spritefonts\ArialBlack_10pt</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>R:\Programming\_C#\My Projects\Games\XNA\Retro Kingdom\Retro Kingdom\Retro_Kingdom\bin\x86\Debug\Content\Resources\spritefonts\ArialBlack_10pt.xnb</Output>
+      <Time>2016-07-07T13:10:44.1885755-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Resources\sounds\menu_move.wav</Source>
+      <Name>Resources\sounds\menu_move</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>R:\Programming\_C#\My Projects\Games\XNA\Retro Kingdom\Retro Kingdom\Retro_Kingdom\bin\x86\Debug\Content\Resources\sounds\menu_move.xnb</Output>
+      <Time>2016-07-07T13:10:49.5010828-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Resources\textures\titlemenu.png</Source>
+      <Name>Resources\textures\titlemenu</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>R:\Programming\_C#\My Projects\Games\XNA\Retro Kingdom\Retro Kingdom\Retro_Kingdom\bin\x86\Debug\Content\Resources\textures\titlemenu.xnb</Output>
+      <Time>2016-07-07T13:53:01.3963368-04:00</Time>
+    </Item>
+    <BuildSuccessful>true</BuildSuccessful>
+    <Settings>
+      <ContentProjectGUID>{0D7BF0FF-82E0-41A0-8796-92CFCFBD2C81}</ContentProjectGUID>
+      <TargetPlatform>Windows</TargetPlatform>
+      <TargetProfile>Reach</TargetProfile>
+      <BuildConfiguration>Debug</BuildConfiguration>
+      <CompressContent>false</CompressContent>
+      <RootDirectory>R:\Programming\_C#\My Projects\Games\XNA\Retro Kingdom\Retro Kingdom\Retro_KingdomContent\</RootDirectory>
+      <LoggerRootDirectory>R:\Programming\_C#\My Projects\Games\XNA\Retro Kingdom\Retro Kingdom\Retro_Kingdom\</LoggerRootDirectory>
+      <IntermediateDirectory>R:\Programming\_C#\My Projects\Games\XNA\Retro Kingdom\Retro Kingdom\Retro_Kingdom\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>R:\Programming\_C#\My Projects\Games\XNA\Retro Kingdom\Retro Kingdom\Retro_Kingdom\bin\x86\Debug\Content\</OutputDirectory>
+    </Settings>
+    <Assemblies>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2011-09-01T16:22:30-04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Value>2011-09-01T16:22:30-04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2011-09-01T16:22:30-04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2011-09-01T16:22:30-04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2011-09-01T16:22:30-04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2011-09-01T16:22:30-04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2016-05-28T22:27:15.3379609-04:00</Value>
+      </Assembly>
+    </Assemblies>
+  </Asset>
+</XnaContent>
