@@ -65,12 +65,12 @@ namespace Retro_Kingdom
             }
             else if (oms.ScrollWheelValue > cms.ScrollWheelValue)
             {
-                this.Camera.Zoom -= 0.1f; ;
+                this.Camera.Zoom -= 0.1f;
             }
 
             if (ckbs.IsKeyDown(Keys.Escape) == true && okbs.IsKeyDown(Keys.Escape) != true)
             {
-                MainGameState.GameStatus = Main.GAME_STATUS_GAME_RTS_MENU;
+                MainGameState.OpenMenu();
             }
 
 

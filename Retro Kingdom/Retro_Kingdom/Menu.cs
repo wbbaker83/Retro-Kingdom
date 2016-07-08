@@ -152,7 +152,8 @@ namespace Retro_Kingdom
                 else if (this.MenuID == 1)
                 {
                     this.SelectedButtonIndex = 0;
-                    MainGameState.GameStatus = Main.GAME_STATUS_GAME_RTS_RUNNING;
+                    //MainGameState.GameStatus = Main.GAME_STATUS_GAME_RTS_RUNNING;
+                    this.MainGameState.OpenMenu();//CurrentGameSelected = 1;
                 }
 
             }
@@ -252,7 +253,8 @@ namespace Retro_Kingdom
                 case "Return To Start Menu":
                     this.MenuID = 0;
                     this.SetMenu();
-                    this.MainGameState.GameStatus = Main.GAME_STATUS_STARTMENU;
+                    this.MainGameState.CurrentGameSelected = 0;
+                    this.MainGameState.GameStatus = Main.GAME_STATUS_MENU;
                     break;
                 case "Video":
                     this.MenuID = 3;
@@ -260,23 +262,29 @@ namespace Retro_Kingdom
                     break;
                 case "Start RTS":
                     this.MainGameState.GameStatus = Main.GAME_STATUS_GAME_RTS_RUNNING;
+                    this.MainGameState.CurrentGameSelected = 1;
                     break;
                 case "Resume RTS":
                     this.MainGameState.GameStatus = Main.GAME_STATUS_GAME_RTS_RUNNING;
+                    this.MainGameState.CurrentGameSelected = 1;
                     break;
                 case "Restart RTS":
                     this.MainGameState.RestartGame();
                     this.MainGameState.GameStatus = Main.GAME_STATUS_GAME_RTS_RUNNING;
+                    this.MainGameState.CurrentGameSelected = 1;
                     break;
                 case "Start SideScroller":
                     this.MainGameState.GameStatus = Main.GAME_STATUS_GAME_SS_RUNNING;
+                    this.MainGameState.CurrentGameSelected = 2;
                     break;
                 case "Resume SideScroller":
                     this.MainGameState.GameStatus = Main.GAME_STATUS_GAME_SS_RUNNING;
+                    this.MainGameState.CurrentGameSelected = 2;
                     break;
                 case "Restart SideScroller":
                     this.MainGameState.RestartGame();
                     this.MainGameState.GameStatus = Main.GAME_STATUS_GAME_SS_RUNNING;
+                    this.MainGameState.CurrentGameSelected = 2;
                     break;
                 case "FullScreen On/Off":
                     this.MainGameState.ToggleFullScreen();

@@ -77,7 +77,7 @@ namespace Retro_Kingdom
 
             if (ckbs.IsKeyDown(Keys.Escape) == true && okbs.IsKeyDown(Keys.Escape) != true)
             {
-                MainGameState.GameStatus = Main.GAME_STATUS_GAME_SS_MENU;
+                MainGameState.OpenMenu();
             }
 
             this.Gravity(PlayerOne);

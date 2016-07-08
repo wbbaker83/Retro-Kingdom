@@ -53,7 +53,7 @@ namespace Retro_Kingdom
                 ckbs.IsKeyDown(Keys.Enter) == true && okbs.IsKeyDown(Keys.Enter) != true ||
                 ckbs.IsKeyDown(Keys.Escape) == true && okbs.IsKeyDown(Keys.Escape) != true)
             {
-                this.MainGameState.GameStatus = Main.GAME_STATUS_STARTMENU;
+                this.MainGameState.OpenMenu();
                 this.CountDown = 0;
             }
             this.CountDown++;
