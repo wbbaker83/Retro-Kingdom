@@ -112,7 +112,8 @@ namespace Retro_Kingdom
                 this.ConfirmSelection();
                 this.NeedsToUpdate = -1;
             }
-            if (ckbs.IsKeyDown(Keys.S) == true && okbs.IsKeyDown(Keys.S) != true)
+            if (ckbs.IsKeyDown(Keys.S) == true && okbs.IsKeyDown(Keys.S) != true ||
+                cgps.DPad.Down == ButtonState.Pressed && ogps.DPad.Down != ButtonState.Pressed)
             {
                 if (this.SelectedButtonIndex + 1 >= this.ButtonNames.Count)
                 {
@@ -127,7 +128,8 @@ namespace Retro_Kingdom
                     this.MenuMoveSound.PlaySoundEffect();
                 }
             }
-            else if (ckbs.IsKeyDown(Keys.W) == true && okbs.IsKeyDown(Keys.W) != true)
+            else if (ckbs.IsKeyDown(Keys.W) == true && okbs.IsKeyDown(Keys.W) != true ||
+                cgps.DPad.Up == ButtonState.Pressed && ogps.DPad.Up != ButtonState.Pressed)
             {
                 if (this.SelectedButtonIndex - 1 < 0)
                 {
@@ -143,7 +145,8 @@ namespace Retro_Kingdom
                 }
             }
 
-            if (ckbs.IsKeyDown(Keys.Escape) == true && okbs.IsKeyDown(Keys.Escape) != true)
+            if (ckbs.IsKeyDown(Keys.Escape) == true && okbs.IsKeyDown(Keys.Escape) != true ||
+                cgps.Buttons.Back == ButtonState.Pressed && ogps.Buttons.Back != ButtonState.Pressed)
             {
                 if (this.MenuID == 0)
                 {
@@ -158,7 +161,9 @@ namespace Retro_Kingdom
 
             }
 
-            if (ckbs.IsKeyDown(Keys.Enter) == true && okbs.IsKeyDown(Keys.Enter) != true)
+            if (ckbs.IsKeyDown(Keys.Enter) == true && okbs.IsKeyDown(Keys.Enter) != true ||
+                cgps.Buttons.Start == ButtonState.Pressed && ogps.Buttons.Start != ButtonState.Pressed ||
+                    cgps.Buttons.A == ButtonState.Pressed && ogps.Buttons.A != ButtonState.Pressed)
             {
                 this.ConfirmSelection();
                 this.SelectedButtonIndex = 0;
@@ -324,7 +329,6 @@ namespace Retro_Kingdom
                     AddButton("Resume RTS");
                     this.SelectedButtonName = "Resume RTS";
                     AddButton("Restart RTS");
-                    AddButton("FullScreen On/Off");
                     AddButton("Return To Start Menu");
                     AddButton("Exit To Desktop");
                     break;
@@ -332,7 +336,6 @@ namespace Retro_Kingdom
                     AddButton("Resume SideScroller");
                     this.SelectedButtonName = "Resume SideScroller";
                     AddButton("Restart SideScroller");
-                    AddButton("FullScreen On/Off");
                     AddButton("Return To Start Menu");
                     AddButton("Exit To Desktop");
                     break;

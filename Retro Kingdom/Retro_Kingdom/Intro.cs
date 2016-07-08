@@ -51,7 +51,9 @@ namespace Retro_Kingdom
             if (this.CountDown > 300 ||
                 cms.LeftButton == ButtonState.Pressed && oms.LeftButton != ButtonState.Pressed ||
                 ckbs.IsKeyDown(Keys.Enter) == true && okbs.IsKeyDown(Keys.Enter) != true ||
-                ckbs.IsKeyDown(Keys.Escape) == true && okbs.IsKeyDown(Keys.Escape) != true)
+                ckbs.IsKeyDown(Keys.Escape) == true && okbs.IsKeyDown(Keys.Escape) != true ||
+                cgps.Buttons.Start == ButtonState.Pressed && ogps.Buttons.Start != ButtonState.Pressed
+                )
             {
                 this.MainGameState.OpenMenu();
                 this.CountDown = 0;

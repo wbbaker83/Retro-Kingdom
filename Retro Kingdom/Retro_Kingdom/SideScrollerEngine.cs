@@ -75,7 +75,8 @@ namespace Retro_Kingdom
                 this.Camera.Zoom -= 0.01f; ;
             }
 
-            if (ckbs.IsKeyDown(Keys.Escape) == true && okbs.IsKeyDown(Keys.Escape) != true)
+            if (ckbs.IsKeyDown(Keys.Escape) == true && okbs.IsKeyDown(Keys.Escape) != true ||
+                cgps.Buttons.Back == ButtonState.Pressed && ogps.Buttons.Back != ButtonState.Pressed)
             {
                 MainGameState.OpenMenu();
             }
