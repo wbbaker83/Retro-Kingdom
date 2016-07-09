@@ -155,10 +155,19 @@ namespace Retro_Kingdom
                 else if (this.MenuID == 1)
                 {
                     this.SelectedButtonIndex = 0;
-                    //MainGameState.GameStatus = Main.GAME_STATUS_GAME_RTS_RUNNING;
-                    this.MainGameState.OpenMenu();//CurrentGameSelected = 1;
+                    MainGameState.GameStatus = Main.GAME_STATUS_GAME_RTS_RUNNING;                    
                 }
-
+                else if (this.MenuID == 2)
+                {
+                    this.SelectedButtonIndex = 0;
+                    MainGameState.GameStatus = Main.GAME_STATUS_GAME_SS_RUNNING;
+                }
+                else if (this.MenuID == 3)
+                {
+                    this.SelectedButtonIndex = 0;
+                    this.MenuID = 0;
+                    this.SetMenu();
+                }
             }
 
             if (ckbs.IsKeyDown(Keys.Enter) == true && okbs.IsKeyDown(Keys.Enter) != true ||
