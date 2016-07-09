@@ -61,7 +61,7 @@ namespace Retro_Kingdom
             this.CountDown++;
         }
 
-        public void Draw(SpriteBatch spriteBatch, GraphicsDevice device)
+        public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Begin();
             spriteBatch.Draw(this.LoadedTextures[0], new Rectangle(0, 0, 1280, 720), null, Color.White, 0, new Vector2(0, 0), SpriteEffects.None, 0);

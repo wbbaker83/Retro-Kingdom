@@ -201,12 +201,11 @@ namespace Retro_Kingdom
 
         }
 
-        public void Draw(SpriteBatch spriteBatch, GraphicsDevice device)
+        public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Begin();
 
             //Background
-
             if (this.MenuID == 0)
             {
                 spriteBatch.Draw(this.LoadedTextures[2], new Rectangle(0, 0, MainGameState.GraphicsDevice.Viewport.Width, MainGameState.GraphicsDevice.Viewport.Height), null, Color.White, 0, new Vector2(0, 0), SpriteEffects.None, 0);
@@ -216,8 +215,6 @@ namespace Retro_Kingdom
             {
                 spriteBatch.Draw(this.LoadedTextures[1], new Rectangle(0, 0, MainGameState.GraphicsDevice.Viewport.Width, MainGameState.GraphicsDevice.Viewport.Height), null, Color.Black, 0, new Vector2(0, 0), SpriteEffects.None, 0);
             }
-
-
 
             Color tmpColor;
             for (int x = 0; x < ButtonNames.Count; x++)

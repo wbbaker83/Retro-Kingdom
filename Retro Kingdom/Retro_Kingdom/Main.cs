@@ -13,9 +13,10 @@ namespace Retro_Kingdom
         public const int GAME_STATUS_INTRO = 0;
         public const int GAME_STATUS_MENU = 1;
         public const int GAME_STATUS_GAME_RTS_RUNNING = 10;
-        //public const int GAME_STATUS_GAME_RTS_MENU = 11;
         public const int GAME_STATUS_GAME_SS_RUNNING = 20;
-        //public const int GAME_STATUS_GAME_SS_MENU = 21;
+
+        public int GameStatus;
+        public int CurrentGameSelected;
 
         GraphicsDeviceManager graphics;
         GraphicsDevice device;
@@ -28,10 +29,7 @@ namespace Retro_Kingdom
         Intro mainIntro;
         RTSEngine gameRTS;
         SideScrollerEngine gameSS;
-        Menu mainMenu;
-
-        public int GameStatus;
-        public int CurrentGameSelected;
+        Menu mainMenu;        
 
         public Main()
         {
@@ -109,15 +107,15 @@ namespace Retro_Kingdom
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            //GraphicsDevice.Clear(Color.CornflowerBlue);
 
             switch (GameStatus)
             {
                 case GAME_STATUS_INTRO:
-                    mainIntro.Draw(spriteBatch, device);
+                    mainIntro.Draw(spriteBatch);
                     break;
                 case GAME_STATUS_MENU:
-                    mainMenu.Draw(spriteBatch, device);
+                    mainMenu.Draw(spriteBatch);
                     break;
                 case GAME_STATUS_GAME_RTS_RUNNING:
                     gameRTS.Draw(spriteBatch);
@@ -126,7 +124,6 @@ namespace Retro_Kingdom
                     gameSS.Draw(spriteBatch);
                     break;
             }
-
 
             base.Draw(gameTime);
         }
@@ -143,10 +140,7 @@ namespace Retro_Kingdom
             mainMenu = new Menu(this, 0);
 
             gameRTS = new RTSEngine("World 1", this);
-
-
             gameSS = new SideScrollerEngine("World 1", this);
-
 
             GameStatus = GAME_STATUS_INTRO;
         }
