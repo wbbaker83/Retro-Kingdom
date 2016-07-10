@@ -182,7 +182,7 @@ namespace Retro_Kingdom
 
             foreach (Rectangle r in this.ButtonBoxes)
             {
-                if (r.Intersects(new Rectangle(cms.X, cms.Y, 1, 1)) == true)// && okbs == ckbs)
+                if (r.Intersects(new Rectangle(cms.X, cms.Y, 1, 1)) == true)
                 {
                     if (this.SelectedButtonIndex != cnt)
                     {
@@ -302,9 +302,13 @@ namespace Retro_Kingdom
                     break;
                 case "1920 x 1080":
                     this.MainGameState.ChangeResolution(1920, 1080);
+                    this.MenuID = this.MenuID;
+                    this.SetMenu();
                     break;
                 case "1280 x 720":
                     this.MainGameState.ChangeResolution(1280, 720);
+                    this.MenuID = this.MenuID;
+                    this.SetMenu();
                     break;
                 case "Exit To Desktop":
                     this.MainGameState.Exit();

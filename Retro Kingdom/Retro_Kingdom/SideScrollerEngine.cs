@@ -60,10 +60,18 @@ namespace Retro_Kingdom
             if (ckbs.IsKeyDown(Keys.D) == true)
             {
                 this.PlayerOne.Box = new Rectangle(this.PlayerOne.Box.X + 1, this.PlayerOne.Box.Y, this.PlayerOne.Box.Width, this.PlayerOne.Box.Height);
+                if (this.IsPlayerCollidingWithSolidSprite(this.PlayerOne))
+                {
+                    this.PlayerOne.Box = new Rectangle(this.PlayerOne.Box.X - 1, this.PlayerOne.Box.Y, this.PlayerOne.Box.Width, this.PlayerOne.Box.Height);
+                }
             }
             else if (ckbs.IsKeyDown(Keys.A) == true)
             {
                 this.PlayerOne.Box = new Rectangle(this.PlayerOne.Box.X - 1, this.PlayerOne.Box.Y, this.PlayerOne.Box.Width, this.PlayerOne.Box.Height);
+                if (this.IsPlayerCollidingWithSolidSprite(this.PlayerOne))
+                {
+                    this.PlayerOne.Box = new Rectangle(this.PlayerOne.Box.X + 1, this.PlayerOne.Box.Y, this.PlayerOne.Box.Width, this.PlayerOne.Box.Height);
+                }
             }
 
             if (oms.ScrollWheelValue < cms.ScrollWheelValue)
@@ -81,7 +89,8 @@ namespace Retro_Kingdom
                 MainGameState.OpenMenu();
             }
 
-            this.Gravity(PlayerOne);
+            this.Gravity(this.PlayerOne);
+
             if (SpriteLayers.ContainsKey("Players") == true)
             {
                 foreach (Sprite s in SpriteLayers["Players"])
@@ -174,14 +183,36 @@ namespace Retro_Kingdom
             {
                 foreach (Sprite s2 in SpriteLayers["Static"])
                 {
-                    if (s2.Box.Intersects(this.PlayerOne.Box))
+                    if (s2.Box.Intersects(s.Box) == true)                    
                     {
                         return;
                     }
                 }
-                this.PlayerOne.Box = new Rectangle(this.PlayerOne.Box.X, this.PlayerOne.Box.Y + 1, this.PlayerOne.Box.Width, this.PlayerOne.Box.Height);
+                if (s.IsFalling == true &&
+                   s.IsJumping == false)
+                { 
+                    s.Box = new Rectangle(s.Box.X, s.Box.Y + 1, s.Box.Width, s.Box.Height);
+                    if (this.IsPlayerCollidingWithSolidSprite(this.PlayerOne))
+                    {
+                        this.PlayerOne.Box = new Rectangle(this.PlayerOne.Box.X, this.PlayerOne.Box.Y - 1, this.PlayerOne.Box.Width, this.PlayerOne.Box.Height);
+                    }
+                }
             }
+        }
 
+        private bool IsPlayerCollidingWithSolidSprite(Sprite s)
+        {
+            if (SpriteLayers.ContainsKey("Static") == true)
+            {
+                foreach (Sprite s2 in SpriteLayers["Static"])
+                {
+                    if (s2.Box.Intersects(s.Box) == true)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
         }
     }
 }

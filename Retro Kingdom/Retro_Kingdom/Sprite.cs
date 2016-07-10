@@ -56,6 +56,18 @@ namespace Retro_Kingdom
             set;
         }
 
+        public bool IsFalling
+        {
+            get;
+            set;
+        }
+
+        public bool IsJumping
+        {
+            get;
+            set;
+        }
+
         public bool IsFacingLeft
         {
             get;
@@ -140,6 +152,8 @@ namespace Retro_Kingdom
             this.SpriteType = type;
             this.Textures = new Texture2D[1];
             this.IsAttachedToMouse = false;
+            this.IsFalling = false;
+            this.IsJumping = false;
 
             if (this.SpriteType >= 0)
             {
@@ -151,6 +165,8 @@ namespace Retro_Kingdom
                         this.Textures[0] = Sprite._loadedtextures[4 - 1];
                         this.IsFacingLeft = false;
                         this.IsAnimated = false;
+                        this.IsFalling = true;
+                        this.IsJumping = false;
                         break;
                     case 1:
                         this.Name = "Rock Base";
