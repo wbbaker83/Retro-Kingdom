@@ -48,15 +48,6 @@ namespace Retro_Kingdom
 
         public void Update(KeyboardState okbs, KeyboardState ckbs, MouseState oms, MouseState cms, GamePadState ogps, GamePadState cgps)
         {
-            if (ckbs.IsKeyDown(Keys.W) == true)
-            {
-                //this.Camera.Move(new Vector2(0, -1));
-            }
-            else if (ckbs.IsKeyDown(Keys.S) == true)
-            {
-                //this.Camera.Move(new Vector2(0, 1));
-            }
-
             if (ckbs.IsKeyDown(Keys.D) == true)
             {
                 this.PlayerOne.Box = new Rectangle(this.PlayerOne.Box.X + 1, this.PlayerOne.Box.Y, this.PlayerOne.Box.Width, this.PlayerOne.Box.Height);
@@ -74,19 +65,38 @@ namespace Retro_Kingdom
                 }
             }
 
-            if (oms.ScrollWheelValue < cms.ScrollWheelValue)
-            {
-                this.Camera.Zoom += 0.01f;
-            }
-            else if (oms.ScrollWheelValue > cms.ScrollWheelValue)
-            {
-                this.Camera.Zoom -= 0.01f; ;
-            }
-
             if (ckbs.IsKeyDown(Keys.Escape) == true && okbs.IsKeyDown(Keys.Escape) != true ||
                 cgps.Buttons.Back == ButtonState.Pressed && ogps.Buttons.Back != ButtonState.Pressed)
             {
                 MainGameState.OpenMenu();
+            }
+
+            if (ckbs.IsKeyDown(Keys.Space) == true)
+            {
+                if (this.PlayerOne.IsJumping == true && this.PlayerOne.IsFalling == false)
+                {
+                    if (this.PlayerOne.CurrentJumpTime < this.PlayerOne.MaxJumpTime)
+                    {
+                        this.PlayerOne.CurrentJumpTime++;
+                        this.PlayerOne.Box = new Rectangle(this.PlayerOne.Box.X, this.PlayerOne.Box.Y - 2, this.PlayerOne.Box.Width, this.PlayerOne.Box.Height);
+                    }
+                    else if (this.PlayerOne.CurrentJumpTime > this.PlayerOne.MaxJumpTime)
+                    {
+                        this.PlayerOne.IsJumping = false;
+                        this.PlayerOne.CurrentJumpTime = 0;
+                        this.PlayerOne.IsFalling = true;
+                    }
+                }
+                else if (this.PlayerOne.IsJumping == false && this.PlayerOne.IsFalling == false)
+                {
+                    this.PlayerOne.IsJumping = true;
+                    this.PlayerOne.CurrentJumpTime++;
+                    this.PlayerOne.Box = new Rectangle(this.PlayerOne.Box.X, this.PlayerOne.Box.Y - 2, this.PlayerOne.Box.Width, this.PlayerOne.Box.Height);
+                }
+            }
+            else
+            {
+                this.PlayerOne.IsJumping = false;
             }
 
             this.Gravity(this.PlayerOne);
@@ -192,8 +202,10 @@ namespace Retro_Kingdom
                    s.IsJumping == false)
                 { 
                     s.Box = new Rectangle(s.Box.X, s.Box.Y + 1, s.Box.Width, s.Box.Height);
+                    
                     if (this.IsPlayerCollidingWithSolidSprite(this.PlayerOne))
                     {
+                        s.IsFalling = false;
                         this.PlayerOne.Box = new Rectangle(this.PlayerOne.Box.X, this.PlayerOne.Box.Y - 1, this.PlayerOne.Box.Width, this.PlayerOne.Box.Height);
                     }
                 }

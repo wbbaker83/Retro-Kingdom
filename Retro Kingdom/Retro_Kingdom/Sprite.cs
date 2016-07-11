@@ -74,6 +74,18 @@ namespace Retro_Kingdom
             set;
         }
 
+        public int CurrentJumpTime
+        {
+            get;
+            set;
+        }
+
+        public int MaxJumpTime
+        {
+            get;
+            set;
+        }
+
         public bool IsAttachedToMouse
         {
             get;
@@ -154,6 +166,8 @@ namespace Retro_Kingdom
             this.IsAttachedToMouse = false;
             this.IsFalling = false;
             this.IsJumping = false;
+            this.CurrentJumpTime = 0;
+            this.MaxJumpTime = 0;
 
             if (this.SpriteType >= 0)
             {
@@ -167,6 +181,8 @@ namespace Retro_Kingdom
                         this.IsAnimated = false;
                         this.IsFalling = true;
                         this.IsJumping = false;
+                        this.CurrentJumpTime = 0;
+                        this.MaxJumpTime = 30;
                         break;
                     case 1:
                         this.Name = "Rock Base";
