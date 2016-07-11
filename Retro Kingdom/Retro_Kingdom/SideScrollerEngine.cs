@@ -75,28 +75,28 @@ namespace Retro_Kingdom
             {
                 if (this.PlayerOne.IsJumping == true && this.PlayerOne.IsFalling == false)
                 {
-                    if (this.PlayerOne.CurrentJumpTime < this.PlayerOne.MaxJumpTime)
-                    {
-                        this.PlayerOne.CurrentJumpTime++;
+                    if (this.PlayerOne.CurrentJumpTime <= this.PlayerOne.MaxJumpTime)
+                    {                        
                         this.PlayerOne.Box = new Rectangle(this.PlayerOne.Box.X, this.PlayerOne.Box.Y - 2, this.PlayerOne.Box.Width, this.PlayerOne.Box.Height);
                     }
                     else if (this.PlayerOne.CurrentJumpTime > this.PlayerOne.MaxJumpTime)
                     {
                         this.PlayerOne.IsJumping = false;
-                        this.PlayerOne.CurrentJumpTime = 0;
                         this.PlayerOne.IsFalling = true;
                     }
                 }
-                else if (this.PlayerOne.IsJumping == false && this.PlayerOne.IsFalling == false)
+                else if (this.PlayerOne.IsJumping == false && this.PlayerOne.IsFalling == false && okbs.IsKeyDown(Keys.Space) == false)
                 {
                     this.PlayerOne.IsJumping = true;
                     this.PlayerOne.CurrentJumpTime++;
                     this.PlayerOne.Box = new Rectangle(this.PlayerOne.Box.X, this.PlayerOne.Box.Y - 2, this.PlayerOne.Box.Width, this.PlayerOne.Box.Height);
                 }
+                this.PlayerOne.CurrentJumpTime++;
             }
             else
             {
                 this.PlayerOne.IsJumping = false;
+                this.PlayerOne.IsFalling = true;
             }
 
             this.Gravity(this.PlayerOne);
@@ -206,6 +206,7 @@ namespace Retro_Kingdom
                     if (this.IsPlayerCollidingWithSolidSprite(this.PlayerOne))
                     {
                         s.IsFalling = false;
+                        this.PlayerOne.CurrentJumpTime = 0;
                         this.PlayerOne.Box = new Rectangle(this.PlayerOne.Box.X, this.PlayerOne.Box.Y - 1, this.PlayerOne.Box.Width, this.PlayerOne.Box.Height);
                     }
                 }

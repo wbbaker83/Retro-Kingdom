@@ -156,6 +156,7 @@ namespace Retro_Kingdom
             {
                 spriteBatch.Draw(this.Textures[0], this.Box, null, Color.White, 0, new Vector2(0, 0), SpriteEffects.None, 0);
             }
+
             spriteBatch.End();
         }
 
@@ -182,7 +183,7 @@ namespace Retro_Kingdom
                         this.IsFalling = true;
                         this.IsJumping = false;
                         this.CurrentJumpTime = 0;
-                        this.MaxJumpTime = 30;
+                        this.MaxJumpTime = 10;
                         break;
                     case 1:
                         this.Name = "Rock Base";
