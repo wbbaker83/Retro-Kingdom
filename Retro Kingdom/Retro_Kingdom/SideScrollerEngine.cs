@@ -48,7 +48,8 @@ namespace Retro_Kingdom
 
         public void Update(KeyboardState okbs, KeyboardState ckbs, MouseState oms, MouseState cms, GamePadState ogps, GamePadState cgps)
         {
-            if (ckbs.IsKeyDown(Keys.D) == true)
+            if (ckbs.IsKeyDown(Keys.D) == true ||
+                cgps.DPad.Right == ButtonState.Pressed)
             {
                 this.PlayerOne.Box = new Rectangle(this.PlayerOne.Box.X + 1, this.PlayerOne.Box.Y, this.PlayerOne.Box.Width, this.PlayerOne.Box.Height);
                 if (this.IsPlayerCollidingWithSolidSprite(this.PlayerOne))
@@ -56,7 +57,8 @@ namespace Retro_Kingdom
                     this.PlayerOne.Box = new Rectangle(this.PlayerOne.Box.X - 1, this.PlayerOne.Box.Y, this.PlayerOne.Box.Width, this.PlayerOne.Box.Height);
                 }
             }
-            else if (ckbs.IsKeyDown(Keys.A) == true)
+            else if (ckbs.IsKeyDown(Keys.A) == true ||
+                cgps.DPad.Left == ButtonState.Pressed)
             {
                 this.PlayerOne.Box = new Rectangle(this.PlayerOne.Box.X - 1, this.PlayerOne.Box.Y, this.PlayerOne.Box.Width, this.PlayerOne.Box.Height);
                 if (this.IsPlayerCollidingWithSolidSprite(this.PlayerOne))
@@ -71,7 +73,8 @@ namespace Retro_Kingdom
                 MainGameState.OpenMenu();
             }
 
-            if (ckbs.IsKeyDown(Keys.Space) == true)
+            if (ckbs.IsKeyDown(Keys.Space) == true ||
+                cgps.Buttons.A == ButtonState.Pressed)
             {
                 if (this.PlayerOne.IsJumping == true && this.PlayerOne.IsFalling == false)
                 {
@@ -85,7 +88,7 @@ namespace Retro_Kingdom
                         this.PlayerOne.IsFalling = true;
                     }
                 }
-                else if (this.PlayerOne.IsJumping == false && this.PlayerOne.IsFalling == false && okbs.IsKeyDown(Keys.Space) == false)
+                else if (this.PlayerOne.IsJumping == false && this.PlayerOne.IsFalling == false && okbs.IsKeyDown(Keys.Space) == false && ogps.Buttons.A == ButtonState.Released)
                 {
                     this.PlayerOne.IsJumping = true;
                     this.PlayerOne.CurrentJumpTime++;
@@ -173,6 +176,7 @@ namespace Retro_Kingdom
                         this.AddSpriteToLayer("Static", new Sprite(1, 0, 310));
                         this.AddSpriteToLayer("Static", new Sprite(1, 50, 310));
                         this.AddSpriteToLayer("Static", new Sprite(1, 100, 310));
+                        this.AddSpriteToLayer("Static", new Sprite(1, 175, 310));
                         this.AddSpriteToLayer("Players", this.PlayerOne);
                         break;
                     case "World 2":
