@@ -38,10 +38,7 @@ namespace Retro_Kingdom
             graphics = new GraphicsDeviceManager(this);
             device = graphics.GraphicsDevice;
             Content.RootDirectory = "Content";
-
-            graphics.PreferredBackBufferWidth = DEFAULT_RESOLUTION_WIDTH;
-            graphics.PreferredBackBufferHeight = DEFAULT_RESOLUTION_HEIGHT;
-            graphics.ApplyChanges();
+            this.ChangeResolution(DEFAULT_RESOLUTION_WIDTH, DEFAULT_RESOLUTION_HEIGHT);
         }
 
 
@@ -57,6 +54,7 @@ namespace Retro_Kingdom
             gameRTS = new RTSEngine("World 1", this);
             gameSS = new SideScrollerEngine("World 1", this);
             mainMenu = new Menu(this, 0);
+
             GameStatus = GAME_STATUS_INTRO;
             CurrentGameSelected = 0;
 
@@ -78,6 +76,7 @@ namespace Retro_Kingdom
 
         protected override void Update(GameTime gameTime)
         {
+
             currentKBState = Keyboard.GetState();
             currentMouseState = Mouse.GetState();
             currentGPStateP1 = GamePad.GetState(PlayerIndex.One);
@@ -108,7 +107,6 @@ namespace Retro_Kingdom
         protected override void Draw(GameTime gameTime)
         {
             //GraphicsDevice.Clear(Color.CornflowerBlue);
-
             switch (GameStatus)
             {
                 case GAME_STATUS_INTRO:
@@ -124,7 +122,6 @@ namespace Retro_Kingdom
                     gameSS.Draw(spriteBatch);
                     break;
             }
-
             base.Draw(gameTime);
         }
 
