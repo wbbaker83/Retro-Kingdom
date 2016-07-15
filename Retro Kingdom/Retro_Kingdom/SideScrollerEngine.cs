@@ -177,6 +177,10 @@ namespace Retro_Kingdom
                         this.AddSpriteToLayer("Static", new Sprite(1, 50, 310));
                         this.AddSpriteToLayer("Static", new Sprite(1, 100, 310));
                         this.AddSpriteToLayer("Static", new Sprite(1, 175, 310));
+                        this.AddSpriteToLayer("Static", new Sprite(1, 250, 305));
+                        this.AddSpriteToLayer("Static", new Sprite(1, 325, 300));
+                        this.AddSpriteToLayer("Static", new Sprite(1, 400, 295));
+                        this.AddSpriteToLayer("Static", new Sprite(1, 475, 290));
                         this.AddSpriteToLayer("Players", this.PlayerOne);
                         break;
                     case "World 2":
