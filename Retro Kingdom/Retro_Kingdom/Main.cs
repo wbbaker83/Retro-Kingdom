@@ -49,6 +49,7 @@ namespace Retro_Kingdom
             Intro.LoadContent(Content);
             Sprite.LoadContent(Content);
             Menu.LoadContent(Content);
+            BarMeter.LoadContent(Content);
 
             mainIntro = new Intro(this);
             gameRTS = new RTSEngine("World 1", this);

@@ -98,6 +98,18 @@ namespace Retro_Kingdom
             set;
         }
 
+        public BarMeter HealthBar
+        {
+            get;
+            set;
+        }
+
+        public bool DrawHealthBar
+        {
+            get;
+            set;
+        }
+
         public int Width
         {
             get { return this.Box.Width; }
@@ -150,14 +162,23 @@ namespace Retro_Kingdom
 
             if (this.IsFacingLeft == false)
             {
-                spriteBatch.Draw(this.Textures[0], this.Box, null, Color.White, 0, new Vector2(0, 0), SpriteEffects.FlipHorizontally, 0);
+                spriteBatch.Draw(this.Textures[0], this.Box, null, Color.White, 0, new Vector2(0,0), SpriteEffects.FlipHorizontally, 0);
             }
             else
             {
                 spriteBatch.Draw(this.Textures[0], this.Box, null, Color.White, 0, new Vector2(0, 0), SpriteEffects.None, 0);
             }
-
             spriteBatch.End();
+
+            if (this.DrawHealthBar == true)
+            {
+
+                this.HealthBar.Location = new Vector2(this.Box.Location.X, this.Box.Location.Y);
+                this.HealthBar.Height = 10;
+                this.HealthBar.Width = this.Width / 2;
+                this.HealthBar.Draw(spriteBatch);
+            }
+           
         }
 
         private void SetSpriteType(int type)
@@ -169,6 +190,8 @@ namespace Retro_Kingdom
             this.IsJumping = false;
             this.CurrentJumpTime = 0;
             this.MaxJumpTime = 0;
+            this.HealthBar = new BarMeter();
+            this.DrawHealthBar = false;
 
             if (this.SpriteType >= 0)
             {
@@ -184,6 +207,7 @@ namespace Retro_Kingdom
                         this.IsJumping = false;
                         this.CurrentJumpTime = 0;
                         this.MaxJumpTime = 10;
+                        this.DrawHealthBar = true;
                         break;
                     case 1:
                         this.Name = "Rock Base";

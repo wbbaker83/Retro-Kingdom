@@ -72,6 +72,7 @@
     <Reference Include="System.Net" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BarMeter.cs" />
     <Compile Include="Camera2D.cs" />
     <Compile Include="GameSoundEffect.cs" />
     <Compile Include="Intro.cs" />
