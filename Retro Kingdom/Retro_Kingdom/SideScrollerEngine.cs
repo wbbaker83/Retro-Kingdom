@@ -120,6 +120,12 @@ namespace Retro_Kingdom
                 }
             }
 
+            //Debug
+            if (ckbs.IsKeyDown(Keys.P) == true)
+            {
+                this.PlayerOne.CurrentHealth--;
+            }
+
         }
 
         public void Draw(SpriteBatch spriteBatch)

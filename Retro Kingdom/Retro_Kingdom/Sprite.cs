@@ -98,6 +98,18 @@ namespace Retro_Kingdom
             set;
         }
 
+        public int CurrentHealth
+        {
+            get;
+            set;
+        }
+
+        public int MaxHealth
+        {
+            get;
+            set;
+        }
+
         public BarMeter HealthBar
         {
             get;
@@ -174,9 +186,12 @@ namespace Retro_Kingdom
             {
 
                 this.HealthBar.Location = new Vector2(this.Box.Location.X, this.Box.Location.Y);
-                this.HealthBar.Height = 10;
-                this.HealthBar.Width = this.Width / 2;
-                this.HealthBar.Draw(spriteBatch);
+                this.HealthBar.Location.Normalize();
+                this.HealthBar.Height = 6;
+                this.HealthBar.Width = 18;
+                this.HealthBar.Current = this.CurrentHealth;
+                this.HealthBar.Max = this.MaxHealth;
+                this.HealthBar.Draw(spriteBatch, camera2D);
             }
            
         }
@@ -205,6 +220,8 @@ namespace Retro_Kingdom
                         this.IsAnimated = false;
                         this.IsFalling = true;
                         this.IsJumping = false;
+                        this.CurrentHealth = 100;
+                        this.MaxHealth = 100;
                         this.CurrentJumpTime = 0;
                         this.MaxJumpTime = 10;
                         this.DrawHealthBar = true;

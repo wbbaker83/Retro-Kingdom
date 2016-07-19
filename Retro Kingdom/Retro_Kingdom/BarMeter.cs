@@ -37,7 +37,7 @@ namespace Retro_Kingdom
 
             contentcount = 1;
             _loadedtextures = new Texture2D[contentcount];
-            _loadedtextures[1 - 1] = conman.Load<Texture2D>("Resources/textures/black_sq");
+            _loadedtextures[1 - 1] = conman.Load<Texture2D>("Resources/textures/white_sq");
         }
 
         public void Update()
@@ -45,11 +45,15 @@ namespace Retro_Kingdom
 
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch, Camera2D camera2D)
         {
-            spriteBatch.Begin();
-            spriteBatch.Draw(this.LoadedTextures[0], new Rectangle((int)this.Location.X, (int)this.Location.Y, this.Width, this.Height), null, Color.Black, 0, new Vector2(this.Location.X, this.Location.Y), SpriteEffects.None, 0);
-            spriteBatch.Draw(this.LoadedTextures[0], new Rectangle((int)this.Location.X + 2, (int)this.Location.Y + 2, this.Width - 2, this.Height - 2), null, Color.Green, 0, new Vector2(0, 0), SpriteEffects.None, 0);
+            decimal tmpFrontWidth = (this.Width - 2);
+            decimal tmpHealth = (decimal)this.Current / (decimal)this.Max;
+            decimal frontWidth = tmpFrontWidth * tmpHealth;
+
+            spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, null, null, null, null, camera2D.get_transformation());
+            spriteBatch.Draw(this.LoadedTextures[0], new Rectangle((int)this.Location.X, (int)(this.Location.Y - this.Height), this.Width, this.Height), null, Color.Black, 0, new Vector2(0,0), SpriteEffects.None, 0);
+            spriteBatch.Draw(this.LoadedTextures[0], new Rectangle((int)this.Location.X + 1, (int)(this.Location.Y - this.Height) + 1, (int)frontWidth, this.Height - 2), null, Color.Green, 0, new Vector2(0, 0), SpriteEffects.None, 0);
             spriteBatch.End();
         }
     }
