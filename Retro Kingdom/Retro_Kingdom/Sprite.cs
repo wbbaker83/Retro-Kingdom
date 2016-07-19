@@ -185,8 +185,8 @@ namespace Retro_Kingdom
             if (this.DrawHealthBar == true)
             {
 
-                this.HealthBar.Location = new Vector2(this.Box.Location.X, this.Box.Location.Y);
-                this.HealthBar.Location.Normalize();
+                this.HealthBar.Location = new Vector2(this.Box.Location.X - (this.Box.Width/ 2), this.Box.Location.Y);
+                //this.HealthBar.Location.Normalize();
                 this.HealthBar.Height = 6;
                 this.HealthBar.Width = 18;
                 this.HealthBar.Current = this.CurrentHealth;
@@ -206,7 +206,9 @@ namespace Retro_Kingdom
             this.CurrentJumpTime = 0;
             this.MaxJumpTime = 0;
             this.HealthBar = new BarMeter();
-            this.DrawHealthBar = false;
+            this.CurrentHealth = 100;
+            this.MaxHealth = 100;
+            this.DrawHealthBar = true;
 
             if (this.SpriteType >= 0)
             {
@@ -220,11 +222,7 @@ namespace Retro_Kingdom
                         this.IsAnimated = false;
                         this.IsFalling = true;
                         this.IsJumping = false;
-                        this.CurrentHealth = 100;
-                        this.MaxHealth = 100;
-                        this.CurrentJumpTime = 0;
                         this.MaxJumpTime = 10;
-                        this.DrawHealthBar = true;
                         break;
                     case 1:
                         this.Name = "Rock Base";
