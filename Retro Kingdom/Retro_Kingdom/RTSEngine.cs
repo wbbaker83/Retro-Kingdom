@@ -81,77 +81,91 @@ namespace Retro_Kingdom
             }
 
 
-            if (SpriteLayers.ContainsKey("Dynamic") == true)
+            if (this.SpriteLayers.Count > 0)
             {
-                foreach (Sprite s in SpriteLayers["Dynamic"])
+                foreach (KeyValuePair<string, List<Sprite>> kp in SpriteLayers)
                 {
-                    if (s.Name == "Paper Soldier" | s.Name == "Rock Soldier")
+                    if (kp.Value.Count > 0)
                     {
-                        int tmpLeftRight = s.RandomNumber.Next(-3, 4);
-                        int tmpUpDown = s.RandomNumber.Next(-1, 2);
-
-                        s.Box = new Rectangle(s.Box.X + tmpLeftRight, s.Box.Y + tmpUpDown, s.Box.Width, s.Box.Height);
-
-                        if (IsSpriteColliding(s) == true)
+                        foreach (Sprite s in kp.Value)
                         {
-                            s.Box = new Rectangle(s.Box.X - tmpLeftRight, s.Box.Y - tmpUpDown, s.Box.Width, s.Box.Height);
-                        }
-
-                        
-                    }
-
-                    if (s.Box.Contains((int)this.Camera.GetMouseWorldPosition().X, (int)this.Camera.GetMouseWorldPosition().Y) == true && Mouse.GetState().LeftButton == ButtonState.Pressed)
-                    {
-                        s.Box = new Rectangle(s.Box.X + 3, s.Box.Y, s.Width, s.Height);
-                    }
-                }
-            }
-
-            if (SpriteLayers.ContainsKey("Static") == true)
-            {
-                foreach (Sprite s in SpriteLayers["Static"])
-                {
-                    if (s.Box.Contains((int)this.Camera.GetMouseWorldPosition().X, (int)this.Camera.GetMouseWorldPosition().Y) == true && Mouse.GetState().LeftButton == ButtonState.Pressed && oms != cms)
-                    {
-                        if (s.IsAttachedToMouse == false)
-                        {
-                            s.IsAttachedToMouse = true;
-                        }
-                        else
-                        {
-                            s.IsAttachedToMouse = false;
-                        }
-                    }
-
-                    if (s.Box.Contains((int)this.Camera.GetMouseWorldPosition().X, (int)this.Camera.GetMouseWorldPosition().Y) == true && Mouse.GetState().RightButton == ButtonState.Pressed && oms != cms)
-                    {
-                        if (s.IsAttachedToMouse == false)
-                        {
-                            if (CurrentSpriteCount <= 500)
+                            switch (kp.Key)
                             {
-                                if (s.Name == "Rock Base")
-                                {
-                                    this.AddSpriteToLayer("Dynamic", new Sprite(4, s.Box.X + (s.Box.Width / 2), s.Box.Y - 10));
-                                }
-                                else if (s.Name == "Paper Base")
-                                {
-                                    this.AddSpriteToLayer("Dynamic", new Sprite(5, s.Box.X + (s.Box.Width / 2), s.Box.Y - 10));
-                                }
+                                case "Dynamic":
+
+                                    if (s.Box.Contains((int)this.Camera.GetMouseWorldPosition().X, (int)this.Camera.GetMouseWorldPosition().Y) == true && Mouse.GetState().LeftButton == ButtonState.Pressed)
+                                    {
+                                        s.Box = new Rectangle(s.Box.X + 3, s.Box.Y, s.Width, s.Height);
+                                    }
+
+                                    switch (s.Name)
+                                    {
+                                        case "Rock Soldier":
+                                            int tmpLeftRight = s.RandomNumber.Next(-3, 4);
+                                            int tmpUpDown = s.RandomNumber.Next(-1, 2);
+
+                                            s.Box = new Rectangle(s.Box.X + tmpLeftRight, s.Box.Y + tmpUpDown, s.Box.Width, s.Box.Height);
+
+                                            if (IsSpriteColliding(s) == true)
+                                            {
+                                                s.Box = new Rectangle(s.Box.X - tmpLeftRight, s.Box.Y - tmpUpDown, s.Box.Width, s.Box.Height);
+                                            }
+
+                                            break;
+                                        case "Paper Soldier":
+                                            tmpLeftRight = s.RandomNumber.Next(-3, 4);
+                                            tmpUpDown = s.RandomNumber.Next(-1, 2);
+
+                                            s.Box = new Rectangle(s.Box.X + tmpLeftRight, s.Box.Y + tmpUpDown, s.Box.Width, s.Box.Height);
+
+                                            if (IsSpriteColliding(s) == true)
+                                            {
+                                                s.Box = new Rectangle(s.Box.X - tmpLeftRight, s.Box.Y - tmpUpDown, s.Box.Width, s.Box.Height);
+                                            }
+
+                                            break;
+                                    }
+                                    break;
+                                case "Static":
+
+                                    if (s.Box.Contains((int)this.Camera.GetMouseWorldPosition().X, (int)this.Camera.GetMouseWorldPosition().Y) == true && Mouse.GetState().LeftButton == ButtonState.Pressed && oms != cms)
+                                    {
+                                        if (s.IsAttachedToMouse == false)
+                                        {
+                                            s.IsAttachedToMouse = true;
+                                        }
+                                        else
+                                        {
+                                            s.IsAttachedToMouse = false;
+                                        }
+                                    }
+
+                                    if (s.IsAttachedToMouse == true)
+                                    {
+                                        s.Box = new Rectangle((int)this.Camera.GetMouseWorldPosition().X - s.Box.Width / 2, (int)this.Camera.GetMouseWorldPosition().Y - s.Box.Height / 2, s.Box.Width, s.Box.Height);
+                                    }
+
+                                    switch (s.Name)
+                                    {
+                                        case "Rock Base":
+                                            if (s.Box.Contains((int)this.Camera.GetMouseWorldPosition().X, (int)this.Camera.GetMouseWorldPosition().Y) == true && Mouse.GetState().RightButton == ButtonState.Pressed && oms != cms)
+                                            {
+                                                this.AddSpriteToLayer("Dynamic", new Sprite(4, s.Box.X + (s.Box.Width / 2), s.Box.Y - 10));
+                                            }
+                                            break;
+                                        case "Paper Base":
+                                            if (s.Box.Contains((int)this.Camera.GetMouseWorldPosition().X, (int)this.Camera.GetMouseWorldPosition().Y) == true && Mouse.GetState().RightButton == ButtonState.Pressed && oms != cms)
+                                            {
+                                                this.AddSpriteToLayer("Dynamic", new Sprite(5, s.Box.X + (s.Box.Width / 2), s.Box.Y - 10));
+                                            }
+                                            break;
+                                    }
+                                    break;
                             }
                         }
-                        else
-                        {
-                            
-                        }
-                    }
-
-                    if (s.IsAttachedToMouse == true)
-                    {
-                        s.Box = new Rectangle((int)this.Camera.GetMouseWorldPosition().X - s.Box.Width / 2, (int)this.Camera.GetMouseWorldPosition().Y - s.Box.Height / 2, s.Box.Width, s.Box.Height);
                     }
                 }
             }
-
         }
 
         public void Draw(SpriteBatch spriteBatch)

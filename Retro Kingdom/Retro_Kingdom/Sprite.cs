@@ -184,11 +184,11 @@ namespace Retro_Kingdom
 
             if (this.DrawHealthBar == true)
             {
-
-                this.HealthBar.Location = new Vector2(this.Box.Location.X - (this.Box.Width/ 2), this.Box.Location.Y);
-                //this.HealthBar.Location.Normalize();
                 this.HealthBar.Height = 6;
                 this.HealthBar.Width = 18;
+                this.HealthBar.Location = new Vector2((this.Box.Location.X + (this.Box.Width / 2)) - (this.HealthBar.Width / 2), this.Box.Location.Y);
+                this.HealthBar.Location.Normalize();
+                
                 this.HealthBar.Current = this.CurrentHealth;
                 this.HealthBar.Max = this.MaxHealth;
                 this.HealthBar.Draw(spriteBatch, camera2D);
