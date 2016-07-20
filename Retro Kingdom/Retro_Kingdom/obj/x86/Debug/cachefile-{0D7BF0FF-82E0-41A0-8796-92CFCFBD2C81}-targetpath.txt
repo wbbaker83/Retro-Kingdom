@@ -9,3 +9,4 @@ Content\Resources\textures\black_sq.xnb
 Content\Resources\textures\titlemenu.xnb
 Content\Resources\spritefonts\ArialBlack_10pt.xnb
 Content\Resources\sounds\menu_move.xnb
+Content\Resources\textures\soldier_scissor.xnb

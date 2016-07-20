@@ -122,6 +122,12 @@ namespace Retro_Kingdom
             set;
         }
 
+        public Sprite TargetedSprite
+        {
+            get;
+            set;
+        }
+
         public int Width
         {
             get { return this.Box.Width; }
@@ -144,6 +150,7 @@ namespace Retro_Kingdom
         {
             this.Box = new Rectangle(posx, posy, 0, 0);
             this.SetSpriteType(type);
+            this.TargetedSprite = null;
 
             this.SpriteID = _spritecount;
             _spritecount++;
@@ -152,13 +159,14 @@ namespace Retro_Kingdom
 
         public static void LoadContent(ContentManager conman)
         {
-            int texturecount = 5;
+            int texturecount = 6;
             _loadedtextures = new Texture2D[texturecount];
             _loadedtextures[1 - 1] = conman.Load<Texture2D>("Resources/textures/base_rock");
             _loadedtextures[2 - 1] = conman.Load<Texture2D>("Resources/textures/base_paper");
             _loadedtextures[3 - 1] = conman.Load<Texture2D>("Resources/textures/base_scissor");
             _loadedtextures[4 - 1] = conman.Load<Texture2D>("Resources/textures/soldier_rock");
             _loadedtextures[5 - 1] = conman.Load<Texture2D>("Resources/textures/soldier_paper");
+            _loadedtextures[6 - 1] = conman.Load<Texture2D>("Resources/textures/soldier_scissor");
         }
 
 
@@ -256,6 +264,13 @@ namespace Retro_Kingdom
                         this.Name = "Paper Soldier";
                         this.Box = new Rectangle(this.Box.X, this.Box.Y, 10, 10);
                         this.Textures[0] = Sprite._loadedtextures[5 - 1];
+                        this.IsFacingLeft = false;
+                        this.IsAnimated = false;
+                        break;
+                    case 6:
+                        this.Name = "Scissor Soldier";
+                        this.Box = new Rectangle(this.Box.X, this.Box.Y, 10, 10);
+                        this.Textures[0] = Sprite._loadedtextures[6 - 1];
                         this.IsFacingLeft = false;
                         this.IsAnimated = false;
                         break;

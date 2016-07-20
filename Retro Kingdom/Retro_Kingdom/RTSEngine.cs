@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System;
 using System.Collections.Generic;
 
 namespace Retro_Kingdom
@@ -112,7 +113,27 @@ namespace Retro_Kingdom
                                             }
 
                                             break;
-                                        case "Paper Soldier":
+                                        case "Paper Soldier":                                            
+                                                AssignClosestEnemyToSprite(s);
+                                                if (s.Box.X >= s.TargetedSprite.Box.X)
+                                                {
+                                                    s.Box = new Rectangle(s.Box.X - 1, s.Box.Y, s.Box.Width, s.Box.Height);
+                                                }
+                                                else if (s.Box.X < s.TargetedSprite.Box.X)
+                                                {
+                                                    s.Box = new Rectangle(s.Box.X + 1, s.Box.Y, s.Box.Width, s.Box.Height);
+                                                }
+
+                                                if (s.Box.Y >= s.TargetedSprite.Box.Y)
+                                                {
+                                                    s.Box = new Rectangle(s.Box.X, s.Box.Y - 1, s.Box.Width, s.Box.Height);
+                                                }
+                                                else if (s.Box.Y < s.TargetedSprite.Box.Y)
+                                                {
+                                                    s.Box = new Rectangle(s.Box.X, s.Box.Y + 1, s.Box.Width, s.Box.Height);
+                                                }                                 
+                                            break;
+                                        case "Scissor Soldier":
                                             tmpLeftRight = s.RandomNumber.Next(-3, 4);
                                             tmpUpDown = s.RandomNumber.Next(-1, 2);
 
@@ -148,15 +169,21 @@ namespace Retro_Kingdom
                                     switch (s.Name)
                                     {
                                         case "Rock Base":
-                                            if (s.Box.Contains((int)this.Camera.GetMouseWorldPosition().X, (int)this.Camera.GetMouseWorldPosition().Y) == true && Mouse.GetState().RightButton == ButtonState.Pressed && oms != cms)
+                                            if (s.Box.Contains((int)this.Camera.GetMouseWorldPosition().X, (int)this.Camera.GetMouseWorldPosition().Y) == true && Mouse.GetState().RightButton == ButtonState.Pressed && oms != cms && s.IsAttachedToMouse == false)
                                             {
                                                 this.AddSpriteToLayer("Dynamic", new Sprite(4, s.Box.X + (s.Box.Width / 2), s.Box.Y - 10));
                                             }
                                             break;
                                         case "Paper Base":
-                                            if (s.Box.Contains((int)this.Camera.GetMouseWorldPosition().X, (int)this.Camera.GetMouseWorldPosition().Y) == true && Mouse.GetState().RightButton == ButtonState.Pressed && oms != cms)
+                                            if (s.Box.Contains((int)this.Camera.GetMouseWorldPosition().X, (int)this.Camera.GetMouseWorldPosition().Y) == true && Mouse.GetState().RightButton == ButtonState.Pressed && oms != cms && s.IsAttachedToMouse == false)
                                             {
                                                 this.AddSpriteToLayer("Dynamic", new Sprite(5, s.Box.X + (s.Box.Width / 2), s.Box.Y - 10));
+                                            }
+                                            break;
+                                        case "Scissor Base":
+                                            if (s.Box.Contains((int)this.Camera.GetMouseWorldPosition().X, (int)this.Camera.GetMouseWorldPosition().Y) == true && Mouse.GetState().RightButton == ButtonState.Pressed && oms != cms && s.IsAttachedToMouse == false)
+                                            {
+                                                this.AddSpriteToLayer("Dynamic", new Sprite(6, s.Box.X + (s.Box.Width / 2), s.Box.Y - 10));
                                             }
                                             break;
                                     }
@@ -251,6 +278,56 @@ namespace Retro_Kingdom
                 }
             }
             return false;
+        }
+
+
+        private double GetDistance(Sprite sprite1, Sprite sprite2)
+        {
+            double a = (double)(sprite2.Box.X - sprite1.Box.X);
+            double b = (double)(sprite2.Box.Y - sprite1.Box.Y);
+
+            return Math.Sqrt(a * a + b * b);
+        }
+
+        private void AssignClosestEnemyToSprite(Sprite sprite1)
+        {
+            //Check if layers exist
+            if (this.SpriteLayers.Count > 0)
+            {
+                //For each of the layers the world
+                foreach (KeyValuePair<string, List<Sprite>> kp in SpriteLayers)
+                {
+                    //Make sure the layer has sprites
+                    if (kp.Value.Count > 0)
+                    {
+                        //Foreach sprite in the layer
+                        foreach (Sprite s in kp.Value)
+                        {
+                            //Check of original sprite is named correct
+                            if (sprite1.Name == "Paper Soldier")
+                            {
+                                    //Check if other sprite is named correct 
+                                    if (s.Name == "Rock Soldier")
+                                    {
+                                        //check if original sprite has a target
+                                        if (sprite1.TargetedSprite == null)
+                                        {
+                                            //assign other sprite to tmp sprite
+                                            sprite1.TargetedSprite = s;
+                                        }
+                                        //check if distance between original sprite and other sprite is less than or equal to
+                                        //the distance between original sprite and original sprite's target
+                                        else if (this.GetDistance(sprite1,s) <= this.GetDistance(sprite1, sprite1.TargetedSprite))
+                                        {
+                                        //assign other sprite to tmp sprite
+                                        sprite1.TargetedSprite = s;
+                                        }
+                                    }                                    
+                            }
+                        }
+                    }
+                }
+            }                           
         }
     }
 }
