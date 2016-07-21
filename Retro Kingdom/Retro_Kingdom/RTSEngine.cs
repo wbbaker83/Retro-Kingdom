@@ -102,64 +102,13 @@ namespace Retro_Kingdom
                                     switch (s.Name)
                                     {
                                         case "Rock Soldier":
-                                            AssignClosestEnemyToSprite(s);
-                                            if (s.Box.X >= s.TargetedSprite.Box.X)
-                                            {
-                                                s.Box = new Rectangle(s.Box.X - 1, s.Box.Y, s.Box.Width, s.Box.Height);
-                                            }
-                                            else if (s.Box.X < s.TargetedSprite.Box.X)
-                                            {
-                                                s.Box = new Rectangle(s.Box.X + 1, s.Box.Y, s.Box.Width, s.Box.Height);
-                                            }
-
-                                            if (s.Box.Y >= s.TargetedSprite.Box.Y)
-                                            {
-                                                s.Box = new Rectangle(s.Box.X, s.Box.Y - 1, s.Box.Width, s.Box.Height);
-                                            }
-                                            else if (s.Box.Y < s.TargetedSprite.Box.Y)
-                                            {
-                                                s.Box = new Rectangle(s.Box.X, s.Box.Y + 1, s.Box.Width, s.Box.Height);
-                                            }
+                                            this.MoveSoldier(s);
                                             break;
-                                        case "Paper Soldier":                                            
-                                                AssignClosestEnemyToSprite(s);
-                                                if (s.Box.X >= s.TargetedSprite.Box.X)
-                                                {
-                                                    s.Box = new Rectangle(s.Box.X - 1, s.Box.Y, s.Box.Width, s.Box.Height);
-                                                }
-                                                else if (s.Box.X < s.TargetedSprite.Box.X)
-                                                {
-                                                    s.Box = new Rectangle(s.Box.X + 1, s.Box.Y, s.Box.Width, s.Box.Height);
-                                                }
-
-                                                if (s.Box.Y >= s.TargetedSprite.Box.Y)
-                                                {
-                                                    s.Box = new Rectangle(s.Box.X, s.Box.Y - 1, s.Box.Width, s.Box.Height);
-                                                }
-                                                else if (s.Box.Y < s.TargetedSprite.Box.Y)
-                                                {
-                                                    s.Box = new Rectangle(s.Box.X, s.Box.Y + 1, s.Box.Width, s.Box.Height);
-                                                }                                 
+                                        case "Paper Soldier":                                                                                        
+                                            this.MoveSoldier(s);                                
                                             break;
                                         case "Scissor Soldier":
-                                            AssignClosestEnemyToSprite(s);
-                                            if (s.Box.X >= s.TargetedSprite.Box.X)
-                                            {
-                                                s.Box = new Rectangle(s.Box.X - 1, s.Box.Y, s.Box.Width, s.Box.Height);
-                                            }
-                                            else if (s.Box.X < s.TargetedSprite.Box.X)
-                                            {
-                                                s.Box = new Rectangle(s.Box.X + 1, s.Box.Y, s.Box.Width, s.Box.Height);
-                                            }
-
-                                            if (s.Box.Y >= s.TargetedSprite.Box.Y)
-                                            {
-                                                s.Box = new Rectangle(s.Box.X, s.Box.Y - 1, s.Box.Width, s.Box.Height);
-                                            }
-                                            else if (s.Box.Y < s.TargetedSprite.Box.Y)
-                                            {
-                                                s.Box = new Rectangle(s.Box.X, s.Box.Y + 1, s.Box.Width, s.Box.Height);
-                                            }
+                                            this.MoveSoldier(s);
                                             break;
                                     }
                                     break;
@@ -386,6 +335,29 @@ namespace Retro_Kingdom
                     }
                 }
             }                           
+        }
+
+        private void MoveSoldier(Sprite s)
+        {
+            this.AssignClosestEnemyToSprite(s);
+
+            if (s.Box.X > s.TargetedSprite.Box.X)
+            {
+                s.Box = new Rectangle(s.Box.X - 1, s.Box.Y, s.Box.Width, s.Box.Height);
+            }
+            else if (s.Box.X < s.TargetedSprite.Box.X)
+            {
+                s.Box = new Rectangle(s.Box.X + 1, s.Box.Y, s.Box.Width, s.Box.Height);
+            }
+
+            if (s.Box.Y > s.TargetedSprite.Box.Y)
+            {
+                s.Box = new Rectangle(s.Box.X, s.Box.Y - 1, s.Box.Width, s.Box.Height);
+            }
+            else if (s.Box.Y < s.TargetedSprite.Box.Y)
+            {
+                s.Box = new Rectangle(s.Box.X, s.Box.Y + 1, s.Box.Width, s.Box.Height);
+            }
         }
     }
 }

@@ -109,6 +109,15 @@
       <Output>R:\Programming\GitHub\Retro-Kingdom\Retro Kingdom\Retro_Kingdom\bin\x86\Debug\Content\Resources\textures\soldier_scissor.xnb</Output>
       <Time>2016-07-20T10:26:54.9611123-04:00</Time>
     </Item>
+    <Item>
+      <Source>Resources\textures\ss_editor_overlay.png</Source>
+      <Name>Resources\textures\ss_editor_overlay</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>R:\Programming\GitHub\Retro-Kingdom\Retro Kingdom\Retro_Kingdom\bin\x86\Debug\Content\Resources\textures\ss_editor_overlay.xnb</Output>
+      <Time>2016-07-21T17:14:46.4798059-04:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{0D7BF0FF-82E0-41A0-8796-92CFCFBD2C81}</ContentProjectGUID>

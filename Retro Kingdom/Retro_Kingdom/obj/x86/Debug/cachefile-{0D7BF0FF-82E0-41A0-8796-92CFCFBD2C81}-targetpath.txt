@@ -10,3 +10,4 @@ Content\Resources\textures\titlemenu.xnb
 Content\Resources\spritefonts\ArialBlack_10pt.xnb
 Content\Resources\sounds\menu_move.xnb
 Content\Resources\textures\soldier_scissor.xnb
+Content\Resources\textures\ss_editor_overlay.xnb

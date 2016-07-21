@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
@@ -7,6 +8,18 @@ namespace Retro_Kingdom
 {
     class SideScrollerEngine
     {
+        public Texture2D[] LoadedTextures
+        {
+            get
+            {
+                return _loadedtextures;
+            }
+            set
+            {
+                _loadedtextures = value;
+            }
+        }
+
         public string Name
         {
             get;
@@ -25,6 +38,12 @@ namespace Retro_Kingdom
             set;
         }
 
+        public bool IsEditingEnabled
+        {
+            get;
+            set;
+        }
+
         public Sprite PlayerOne
         {
             get;
@@ -36,14 +55,28 @@ namespace Retro_Kingdom
             get;
         }
 
+        
+
+        private static Texture2D[] _loadedtextures;
+
         public SideScrollerEngine(string name, Main main)
         {
             SpriteLayers = new Dictionary<string, List<Sprite>>();
+            this.IsEditingEnabled = false;
             this.Camera = new Camera2D(1280, 720);
             this.PlayerOne = new Sprite(0, 100, 290);
             this.Name = name;
             this.MainGameState = main;
             this.LoadMap();
+        }
+
+        public static void LoadContent(ContentManager conman)
+        {
+            int contentcount;
+
+            contentcount = 1;
+            _loadedtextures = new Texture2D[contentcount];
+            _loadedtextures[1 - 1] = conman.Load<Texture2D>("Resources/textures/ss_editor_overlay");
         }
 
         public void Update(KeyboardState okbs, KeyboardState ckbs, MouseState oms, MouseState cms, GamePadState ogps, GamePadState cgps)
@@ -67,7 +100,20 @@ namespace Retro_Kingdom
                 }
             }
 
-            if (ckbs.IsKeyDown(Keys.Escape) == true && okbs.IsKeyDown(Keys.Escape) != true ||
+            //Editor
+            if (ckbs.IsKeyDown(Keys.E) == true && ckbs != okbs)
+            {
+                if (this.IsEditingEnabled == false)
+                {
+                    this.IsEditingEnabled = true;
+                }
+                else
+                {
+                    this.IsEditingEnabled = false;
+                }
+            }
+
+                if (ckbs.IsKeyDown(Keys.Escape) == true && okbs.IsKeyDown(Keys.Escape) != true ||
                 cgps.Buttons.Back == ButtonState.Pressed && ogps.Buttons.Back != ButtonState.Pressed)
             {
                 MainGameState.OpenMenu();
@@ -104,19 +150,40 @@ namespace Retro_Kingdom
 
             this.Gravity(this.PlayerOne);
 
-            if (SpriteLayers.ContainsKey("Players") == true)
+            if (this.SpriteLayers.Count > 0 && this.IsEditingEnabled == true)
             {
-                foreach (Sprite s in SpriteLayers["Players"])
+                foreach (KeyValuePair<string, List<Sprite>> kp in SpriteLayers)
                 {
+                    if (kp.Value.Count > 0)
+                    {
+                        foreach (Sprite s in kp.Value)
+                        {
+                            switch (kp.Key)
+                            {
+                                case "Dynamic":
+                                    break;
+                                case "Static":
 
-                }
-            }
+                                    if (s.Box.Contains((int)this.Camera.GetMouseWorldPosition().X, (int)this.Camera.GetMouseWorldPosition().Y) == true && Mouse.GetState().LeftButton == ButtonState.Pressed && oms != cms)
+                                    {
+                                        if (s.IsAttachedToMouse == false)
+                                        {
+                                            s.IsAttachedToMouse = true;
+                                        }
+                                        else
+                                        {
+                                            s.IsAttachedToMouse = false;
+                                        }
+                                    }
 
-            if (SpriteLayers.ContainsKey("Static") == true)
-            {
-                foreach (Sprite s in SpriteLayers["Static"])
-                {
-
+                                    if (s.IsAttachedToMouse == true)
+                                    {
+                                        s.Box = new Rectangle((int)this.Camera.GetMouseWorldPosition().X - s.Box.Width / 2, (int)this.Camera.GetMouseWorldPosition().Y - s.Box.Height / 2, s.Box.Width, s.Box.Height);
+                                    }
+                                    break;
+                            }
+                        }
+                    }
                 }
             }
 
@@ -138,6 +205,13 @@ namespace Retro_Kingdom
                     {
                         foreach (Sprite s in kp.Value)
                         {
+                            if (this.IsEditingEnabled == true)
+                            {
+                                spriteBatch.Begin();
+                                spriteBatch.Draw(this.LoadedTextures[0], new Rectangle(0, 0, MainGameState.GraphicsDevice.Viewport.Width, MainGameState.GraphicsDevice.Viewport.Height), null, Color.White, 0, new Vector2(0, 0), SpriteEffects.None, 0);
+                                spriteBatch.End();
+
+                            }
                             s.Draw(spriteBatch, this.Camera);
                         }
                     }
@@ -149,6 +223,11 @@ namespace Retro_Kingdom
 
         public void AddSpriteToLayer(string layername, Sprite s)
         {
+            if (layername != "Players")
+            {
+                s.DrawHealthBar = false;
+            }
+
             if (SpriteLayers.ContainsKey(layername) == true)
             {
                 SpriteLayers[layername].Add(s);

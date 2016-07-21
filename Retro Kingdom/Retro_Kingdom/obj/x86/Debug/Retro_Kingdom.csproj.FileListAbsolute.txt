@@ -81,3 +81,4 @@ R:\Programming\GitHub\Retro-Kingdom\Retro Kingdom\Retro_Kingdom\obj\x86\Debug\Mi
 R:\Programming\GitHub\Retro-Kingdom\Retro Kingdom\Retro_Kingdom\obj\x86\Debug\Retro_Kingdom.exe
 R:\Programming\GitHub\Retro-Kingdom\Retro Kingdom\Retro_Kingdom\obj\x86\Debug\Retro_Kingdom.pdb
 R:\Programming\GitHub\Retro-Kingdom\Retro Kingdom\Retro_Kingdom\bin\x86\Debug\Content\Resources\textures\soldier_scissor.xnb
+R:\Programming\GitHub\Retro-Kingdom\Retro Kingdom\Retro_Kingdom\bin\x86\Debug\Content\Resources\textures\ss_editor_overlay.xnb
