@@ -150,43 +150,84 @@ namespace Retro_Kingdom
 
             this.Gravity(this.PlayerOne);
 
-            if (this.SpriteLayers.Count > 0 && this.IsEditingEnabled == true)
+
+
+            if (this.IsEditingEnabled == true)
             {
-                foreach (KeyValuePair<string, List<Sprite>> kp in SpriteLayers)
+                if (oms.ScrollWheelValue < cms.ScrollWheelValue)
                 {
-                    if (kp.Value.Count > 0)
+                    this.Camera.Zoom += 0.1f;
+                }
+                else if (oms.ScrollWheelValue > cms.ScrollWheelValue)
+                {
+                    this.Camera.Zoom -= 0.1f;
+                }
+
+                if (ckbs.IsKeyDown(Keys.Up) == true)
+                {
+                    this.Camera.Move(new Vector2(0, -1));
+                }
+                else if (ckbs.IsKeyDown(Keys.Down) == true)
+                {
+                    this.Camera.Move(new Vector2(0, 1));
+                }
+
+                if (ckbs.IsKeyDown(Keys.Right) == true)
+                {
+                    this.Camera.Move(new Vector2(1, 0));
+                }
+                else if (ckbs.IsKeyDown(Keys.Left) == true)
+                {
+                    this.Camera.Move(new Vector2(-1, 0));
+                }
+
+                if (this.SpriteLayers.Count > 0)
+                {
+                    foreach (KeyValuePair<string, List<Sprite>> kp in SpriteLayers)
                     {
-                        foreach (Sprite s in kp.Value)
+                        if (kp.Value.Count > 0)
                         {
-                            switch (kp.Key)
+                            foreach (Sprite s in kp.Value)
                             {
-                                case "Dynamic":
-                                    break;
-                                case "Static":
+                                switch (kp.Key)
+                                {
+                                    case "Dynamic":
+                                        break;
+                                    case "Static":
 
-                                    if (s.Box.Contains((int)this.Camera.GetMouseWorldPosition().X, (int)this.Camera.GetMouseWorldPosition().Y) == true && Mouse.GetState().LeftButton == ButtonState.Pressed && oms != cms)
-                                    {
-                                        if (s.IsAttachedToMouse == false)
+                                        if (s.Box.Contains((int)this.Camera.GetMouseWorldPosition().X, (int)this.Camera.GetMouseWorldPosition().Y) == true && cms.LeftButton == ButtonState.Pressed && oms.LeftButton != ButtonState.Pressed)
                                         {
-                                            s.IsAttachedToMouse = true;
+                                            if (s.IsAttachedToMouse == false)
+                                            {
+                                                s.IsAttachedToMouse = true;
+                                            }
+                                            else
+                                            {
+                                                s.IsAttachedToMouse = false;
+                                            }
                                         }
-                                        else
-                                        {
-                                            s.IsAttachedToMouse = false;
-                                        }
-                                    }
 
-                                    if (s.IsAttachedToMouse == true)
-                                    {
-                                        s.Box = new Rectangle((int)this.Camera.GetMouseWorldPosition().X - s.Box.Width / 2, (int)this.Camera.GetMouseWorldPosition().Y - s.Box.Height / 2, s.Box.Width, s.Box.Height);
-                                    }
-                                    break;
+                                        if (s.IsAttachedToMouse == true)
+                                        {
+                                            s.Box = new Rectangle((int)this.Camera.GetMouseWorldPosition().X - s.Box.Width / 2, (int)this.Camera.GetMouseWorldPosition().Y - s.Box.Height / 2, s.Box.Width, s.Box.Height);
+                                            if (ckbs.IsKeyDown(Keys.Add) == true)
+                                            {
+                                                s.Height++;
+                                                s.Width++;
+                                            }
+                                            else if (ckbs.IsKeyDown(Keys.Subtract) == true)
+                                            {
+                                                s.Height--;
+                                                s.Width--;
+                                            }
+                                        }
+                                        break;
+                                }
                             }
                         }
                     }
                 }
             }
-
             //Debug
             if (ckbs.IsKeyDown(Keys.P) == true)
             {
