@@ -181,6 +181,8 @@ namespace Retro_Kingdom
                     this.Camera.Move(new Vector2(-1, 0));
                 }
 
+                
+
                 if (this.SpriteLayers.Count > 0)
                 {
                     foreach (KeyValuePair<string, List<Sprite>> kp in SpriteLayers)
@@ -189,6 +191,18 @@ namespace Retro_Kingdom
                         {
                             foreach (Sprite s in kp.Value)
                             {
+                                if (s.IsAttachedToMouse == true)
+                                {
+                                    s.SpriteColor = Color.Yellow;
+                                    
+                                }
+                                else
+                                {
+                                    s.SpriteColor = Color.White;
+                                }
+
+                                
+
                                 switch (kp.Key)
                                 {
                                     case "Dynamic":
@@ -220,6 +234,11 @@ namespace Retro_Kingdom
                                                 s.Height--;
                                                 s.Width--;
                                             }
+
+                                            if (ckbs.IsKeyDown(Keys.R) == true)
+                                            {
+                                                s.SpriteRotation++;
+                                            }
                                         }
                                         break;
                                 }
@@ -248,9 +267,10 @@ namespace Retro_Kingdom
                         {
                             if (this.IsEditingEnabled == true)
                             {
-                                spriteBatch.Begin();
-                                spriteBatch.Draw(this.LoadedTextures[0], new Rectangle(0, 0, MainGameState.GraphicsDevice.Viewport.Width, MainGameState.GraphicsDevice.Viewport.Height), null, Color.White, 0, new Vector2(0, 0), SpriteEffects.None, 0);
-                                spriteBatch.End();
+
+                                    spriteBatch.Begin();
+                                    spriteBatch.Draw(this.LoadedTextures[0], new Rectangle(0, 0, MainGameState.GraphicsDevice.Viewport.Width, MainGameState.GraphicsDevice.Viewport.Height), null, Color.White, 0, new Vector2(0, 0), SpriteEffects.None, 0);
+                                    spriteBatch.End();
 
                             }
                             s.Draw(spriteBatch, this.Camera);

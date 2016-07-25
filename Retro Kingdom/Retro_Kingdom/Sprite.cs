@@ -92,6 +92,18 @@ namespace Retro_Kingdom
             set;
         }
 
+        public Color SpriteColor
+        {
+            get;
+            set;
+        }
+
+        public float SpriteRotation
+        {
+            get;
+            set;
+        }
+
         public bool IsAnimated
         {
             get;
@@ -182,11 +194,11 @@ namespace Retro_Kingdom
 
             if (this.IsFacingLeft == false)
             {
-                spriteBatch.Draw(this.Textures[0], this.Box, null, Color.White, 0, new Vector2(0,0), SpriteEffects.FlipHorizontally, 0);
+                spriteBatch.Draw(this.Textures[0], this.Box, null, this.SpriteColor, this.SpriteRotation, new Vector2(0,0), SpriteEffects.FlipHorizontally, 0);
             }
             else
             {
-                spriteBatch.Draw(this.Textures[0], this.Box, null, Color.White, 0, new Vector2(0, 0), SpriteEffects.None, 0);
+                spriteBatch.Draw(this.Textures[0], this.Box, null, this.SpriteColor, this.SpriteRotation, new Vector2(0,0), SpriteEffects.None, 0);
             }
             spriteBatch.End();
 
@@ -217,6 +229,7 @@ namespace Retro_Kingdom
             this.CurrentHealth = 100;
             this.MaxHealth = 100;
             this.DrawHealthBar = true;
+            this.SpriteColor = Color.White;
 
             if (this.SpriteType >= 0)
             {
