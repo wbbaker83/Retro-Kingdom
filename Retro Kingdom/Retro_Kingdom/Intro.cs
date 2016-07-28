@@ -64,7 +64,7 @@ namespace Retro_Kingdom
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Begin();
-            spriteBatch.Draw(this.LoadedTextures[0], new Rectangle(0, 0, 1280, 720), null, Color.White, 0, new Vector2(0, 0), SpriteEffects.None, 0);
+            spriteBatch.Draw(this.LoadedTextures[0], new Rectangle(0, 0, this.MainGameState.GraphicsDevice.Viewport.Width, this.MainGameState.GraphicsDevice.Viewport.Height), null, Color.White, 0, new Vector2(0, 0), SpriteEffects.None, 0);
             spriteBatch.End();
         }
     }

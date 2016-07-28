@@ -1,6 +1,9 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System;
+using System.Collections.Generic;
+using System.IO;
 
 namespace Retro_Kingdom
 {
@@ -38,7 +41,12 @@ namespace Retro_Kingdom
             graphics = new GraphicsDeviceManager(this);
             device = graphics.GraphicsDevice;
             Content.RootDirectory = "Content";
+
+
             this.ChangeResolution(DEFAULT_RESOLUTION_WIDTH, DEFAULT_RESOLUTION_HEIGHT);
+            this.LoadOptions();
+
+            
         }
 
 
@@ -154,6 +162,67 @@ namespace Retro_Kingdom
             graphics.PreferredBackBufferWidth = width;
             graphics.PreferredBackBufferHeight = height;
             graphics.ApplyChanges();
+        }
+
+        private void CreateDefaultOptions()
+        {
+            string tmpFile = "options.ini";
+
+            using (StreamWriter sw = File.CreateText(tmpFile))
+            {
+                sw.WriteLine(string.Format("fullscreen={0}", graphics.IsFullScreen.ToString().ToLower()));
+                sw.WriteLine(string.Format("height={0}", graphics.PreferredBackBufferHeight));
+                sw.WriteLine(string.Format("width={0}", graphics.PreferredBackBufferWidth));
+            }
+        }
+
+        private void LoadOptions()
+        {
+            string tmpFile = "options.ini";
+            List<string> tmpLines = new List<string>();
+            if (File.Exists(tmpFile))
+            {
+                using (StreamReader reader = new StreamReader(tmpFile))
+                {
+                    string tmpLine;
+
+                    while ((tmpLine = reader.ReadLine()) != null)
+                    {
+                        string left = tmpLine.Substring(0, tmpLine.IndexOf("="));
+                        string right = tmpLine.Substring(tmpLine.LastIndexOf('=') + 1);
+
+                        switch (left)
+                        {
+                            case "fullscreen":
+                                graphics.IsFullScreen = Boolean.Parse(right);                                
+                            break;
+                            case "height":
+                                graphics.PreferredBackBufferHeight = int.Parse(right);
+                                break;
+                            case "width":
+                                graphics.PreferredBackBufferWidth = int.Parse(right);
+                                break;
+                        }
+                        graphics.ApplyChanges();
+                    }
+                }
+            }
+            else
+            {
+                this.CreateDefaultOptions();
+            }
+        }
+
+        public void SaveOptions()
+        {
+            string tmpFile = "options.ini";
+
+            using (StreamWriter sw = File.CreateText(tmpFile))
+            {
+                sw.WriteLine(string.Format("fullscreen={0}", graphics.IsFullScreen.ToString().ToLower()));
+                sw.WriteLine(string.Format("height={0}", graphics.PreferredBackBufferHeight));
+                sw.WriteLine(string.Format("width={0}", graphics.PreferredBackBufferWidth));
+            }
         }
     }
 }

@@ -100,18 +100,7 @@ namespace Retro_Kingdom
                 }
             }
 
-            //Editor
-            if (ckbs.IsKeyDown(Keys.E) == true && ckbs != okbs)
-            {
-                if (this.IsEditingEnabled == false)
-                {
-                    this.IsEditingEnabled = true;
-                }
-                else
-                {
-                    this.IsEditingEnabled = false;
-                }
-            }
+            
 
                 if (ckbs.IsKeyDown(Keys.Escape) == true && okbs.IsKeyDown(Keys.Escape) != true ||
                 cgps.Buttons.Back == ButtonState.Pressed && ogps.Buttons.Back != ButtonState.Pressed)
@@ -151,6 +140,18 @@ namespace Retro_Kingdom
             this.Gravity(this.PlayerOne);
 
 
+            //Editor
+            if (ckbs.IsKeyDown(Keys.E) == true && ckbs != okbs)
+            {
+                if (this.IsEditingEnabled == false)
+                {
+                    this.IsEditingEnabled = true;
+                }
+                else
+                {
+                    this.IsEditingEnabled = false;
+                }
+            }
 
             if (this.IsEditingEnabled == true)
             {
@@ -165,20 +166,20 @@ namespace Retro_Kingdom
 
                 if (ckbs.IsKeyDown(Keys.Up) == true)
                 {
-                    this.Camera.Move(new Vector2(0, -1));
+                    this.Camera.Move(new Vector2(0, -2));
                 }
                 else if (ckbs.IsKeyDown(Keys.Down) == true)
                 {
-                    this.Camera.Move(new Vector2(0, 1));
+                    this.Camera.Move(new Vector2(0, 2));
                 }
 
                 if (ckbs.IsKeyDown(Keys.Right) == true)
                 {
-                    this.Camera.Move(new Vector2(1, 0));
+                    this.Camera.Move(new Vector2(2, 0));
                 }
                 else if (ckbs.IsKeyDown(Keys.Left) == true)
                 {
-                    this.Camera.Move(new Vector2(-1, 0));
+                    this.Camera.Move(new Vector2(-2, 0));
                 }
 
                 
@@ -194,7 +195,19 @@ namespace Retro_Kingdom
                                 if (s.IsAttachedToMouse == true)
                                 {
                                     s.SpriteColor = Color.Yellow;
-                                    
+                                    if (ckbs.IsKeyDown(Keys.NumPad5) == true && okbs.IsKeyDown(Keys.NumPad5) == false)
+                                    {
+                                        if (s.SpriteType == (int)Sprite.SpriteTypes.ScissorSoldier)
+                                        {
+                                            s.SetSpriteType(1);
+                                        }
+                                        else
+                                        {
+                                            s.SetSpriteType(s.SpriteType + 1);                                            
+                                        }
+                                        s.IsAttachedToMouse = true;
+                                        s.DrawHealthBar = false;
+                                    }
                                 }
                                 else
                                 {
@@ -224,6 +237,7 @@ namespace Retro_Kingdom
                                         if (s.IsAttachedToMouse == true)
                                         {
                                             s.Box = new Rectangle((int)this.Camera.GetMouseWorldPosition().X - s.Box.Width / 2, (int)this.Camera.GetMouseWorldPosition().Y - s.Box.Height / 2, s.Box.Width, s.Box.Height);
+
                                             if (ckbs.IsKeyDown(Keys.Add) == true)
                                             {
                                                 s.Height++;
@@ -234,6 +248,26 @@ namespace Retro_Kingdom
                                                 s.Height--;
                                                 s.Width--;
                                             }
+
+                                            if (ckbs.IsKeyDown(Keys.NumPad8) == true)
+                                            {
+                                                s.Height++;
+                                            }
+                                            else if (ckbs.IsKeyDown(Keys.NumPad2) == true)
+                                            {
+                                                s.Height--;
+                                            }
+
+                                            if (ckbs.IsKeyDown(Keys.NumPad4) == true)
+                                            {
+                                                s.Width--;
+                                            }
+                                            else if (ckbs.IsKeyDown(Keys.NumPad6) == true)
+                                            {
+                                                s.Width++;
+                                            }
+
+                                            
 
                                             if (ckbs.IsKeyDown(Keys.R) == true)
                                             {
@@ -247,6 +281,7 @@ namespace Retro_Kingdom
                     }
                 }
             }
+
             //Debug
             if (ckbs.IsKeyDown(Keys.P) == true)
             {

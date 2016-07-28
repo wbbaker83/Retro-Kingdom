@@ -311,6 +311,7 @@ namespace Retro_Kingdom
                     this.SetMenu();
                     break;
                 case "Exit To Desktop":
+                    this.MainGameState.SaveOptions();
                     this.MainGameState.Exit();
                     break;
 

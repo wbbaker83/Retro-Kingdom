@@ -7,6 +7,16 @@ namespace Retro_Kingdom
 {
     public class Sprite
     {
+        public enum SpriteTypes
+        {
+            RockBase = 1,
+            PaperBase,
+            ScissorBase,
+            RockSoldier,
+            PaperSoldier,
+            ScissorSoldier
+        };
+
         private static int _spritecount = 1;
         private static Texture2D[] _loadedtextures;
 
@@ -216,7 +226,7 @@ namespace Retro_Kingdom
            
         }
 
-        private void SetSpriteType(int type)
+        public void SetSpriteType(int type)
         {
             this.SpriteType = type;
             this.Textures = new Texture2D[1];
@@ -240,47 +250,47 @@ namespace Retro_Kingdom
                         this.Box = new Rectangle(this.Box.X, this.Box.Y, 10, 10);
                         this.Textures[0] = Sprite._loadedtextures[4 - 1];
                         this.IsFacingLeft = false;
-                        this.IsAnimated = false;
+                        this.IsAnimated = false;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
                         this.IsFalling = true;
                         this.IsJumping = false;
                         this.MaxJumpTime = 10;
                         break;
-                    case 1:
+                    case (int)SpriteTypes.RockBase:
                         this.Name = "Rock Base";
                         this.Box = new Rectangle(this.Box.X, this.Box.Y, 50, 50);
                         this.Textures[0] = Sprite._loadedtextures[1 - 1];
                         this.IsFacingLeft = false;
                         this.IsAnimated = false;
                         break;
-                    case 2:
+                    case (int)SpriteTypes.PaperBase:
                         this.Name = "Paper Base";
                         this.Box = new Rectangle(this.Box.X, this.Box.Y, 50, 50);
                         this.Textures[0] = Sprite._loadedtextures[2 - 1];
                         this.IsFacingLeft = false;
                         this.IsAnimated = false;
                         break;
-                    case 3:
+                    case (int)SpriteTypes.ScissorBase:
                         this.Name = "Scissor Base";
                         this.Box = new Rectangle(this.Box.X, this.Box.Y, 50, 50);
                         this.Textures[0] = Sprite._loadedtextures[3 - 1];
                         this.IsFacingLeft = false;
                         this.IsAnimated = false;
                         break;
-                    case 4:
+                    case (int)SpriteTypes.RockSoldier:
                         this.Name = "Rock Soldier";
                         this.Box = new Rectangle(this.Box.X, this.Box.Y, 10, 10);
                         this.Textures[0] = Sprite._loadedtextures[4 - 1];
                         this.IsFacingLeft = false;
                         this.IsAnimated = false;
                         break;
-                    case 5:
+                    case (int)SpriteTypes.PaperSoldier:
                         this.Name = "Paper Soldier";
                         this.Box = new Rectangle(this.Box.X, this.Box.Y, 10, 10);
                         this.Textures[0] = Sprite._loadedtextures[5 - 1];
                         this.IsFacingLeft = false;
                         this.IsAnimated = false;
                         break;
-                    case 6:
+                    case (int)SpriteTypes.ScissorSoldier:
                         this.Name = "Scissor Soldier";
                         this.Box = new Rectangle(this.Box.X, this.Box.Y, 10, 10);
                         this.Textures[0] = Sprite._loadedtextures[6 - 1];
