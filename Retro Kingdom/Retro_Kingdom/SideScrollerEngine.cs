@@ -85,7 +85,7 @@ namespace Retro_Kingdom
                 cgps.DPad.Right == ButtonState.Pressed)
             {
                 this.PlayerOne.Box = new Rectangle(this.PlayerOne.Box.X + 1, this.PlayerOne.Box.Y, this.PlayerOne.Box.Width, this.PlayerOne.Box.Height);
-                if (this.IsPlayerCollidingWithSolidSprite(this.PlayerOne))
+                if (this.IsSpriteCollidingWithStaticSprite(this.PlayerOne))
                 {
                     this.PlayerOne.Box = new Rectangle(this.PlayerOne.Box.X - 1, this.PlayerOne.Box.Y, this.PlayerOne.Box.Width, this.PlayerOne.Box.Height);
                 }
@@ -94,7 +94,7 @@ namespace Retro_Kingdom
                 cgps.DPad.Left == ButtonState.Pressed)
             {
                 this.PlayerOne.Box = new Rectangle(this.PlayerOne.Box.X - 1, this.PlayerOne.Box.Y, this.PlayerOne.Box.Width, this.PlayerOne.Box.Height);
-                if (this.IsPlayerCollidingWithSolidSprite(this.PlayerOne))
+                if (this.IsSpriteCollidingWithStaticSprite(this.PlayerOne))
                 {
                     this.PlayerOne.Box = new Rectangle(this.PlayerOne.Box.X + 1, this.PlayerOne.Box.Y, this.PlayerOne.Box.Width, this.PlayerOne.Box.Height);
                 }
@@ -194,7 +194,16 @@ namespace Retro_Kingdom
                             {
                                 if (s.IsAttachedToMouse == true)
                                 {
-                                    s.SpriteColor = Color.Yellow;
+                                    if (this.IsSpriteCollidingWithStaticSprite(s) == true)
+                                    {
+                                        s.SpriteColor = Color.DarkRed;
+                                    }
+                                    else
+                                    {
+                                        s.SpriteColor = Color.Green;
+                                    }
+
+
                                     if (ckbs.IsKeyDown(Keys.NumPad5) == true && okbs.IsKeyDown(Keys.NumPad5) == false)
                                     {
                                         if (s.SpriteType == (int)Sprite.SpriteTypes.ScissorSoldier)
@@ -392,7 +401,7 @@ namespace Retro_Kingdom
                 { 
                     s.Box = new Rectangle(s.Box.X, s.Box.Y + 1, s.Box.Width, s.Box.Height);
                     
-                    if (this.IsPlayerCollidingWithSolidSprite(this.PlayerOne))
+                    if (this.IsSpriteCollidingWithStaticSprite(this.PlayerOne))
                     {
                         s.IsFalling = false;
                         this.PlayerOne.CurrentJumpTime = 0;
@@ -402,19 +411,37 @@ namespace Retro_Kingdom
             }
         }
 
-        private bool IsPlayerCollidingWithSolidSprite(Sprite s)
+        private bool IsSpriteCollidingWithStaticSprite(Sprite s)
         {
             if (SpriteLayers.ContainsKey("Static") == true)
             {
                 foreach (Sprite s2 in SpriteLayers["Static"])
                 {
-                    if (s2.Box.Intersects(s.Box) == true)
+                    if (s != s2 && s2.Box.Intersects(s.Box) == true)
                     {
                         return true;
                     }
                 }
             }
             return false;
+        }
+
+        private string WhichLayerContainsSprite(Sprite s)
+        {
+            if (this.SpriteLayers.Count > 0)
+            {
+                foreach (KeyValuePair<string, List<Sprite>> kp in SpriteLayers)
+                {
+                    if (kp.Value.Count > 0)
+                    {
+                        if (kp.Value.Contains(s) == true)
+                        {
+                            return kp.Key;
+                        }
+                    }
+                }
+            }
+            return null;
         }
     }
 }
