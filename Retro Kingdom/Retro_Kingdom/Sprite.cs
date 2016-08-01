@@ -204,11 +204,11 @@ namespace Retro_Kingdom
 
             if (this.IsFacingLeft == false)
             {
-                spriteBatch.Draw(this.Textures[0], this.Box, null, this.SpriteColor, this.SpriteRotation, new Vector2(0,0), SpriteEffects.FlipHorizontally, 0);
+                spriteBatch.Draw(this.Textures[0], this.Box, null, this.SpriteColor, this.SpriteRotation, new Vector2(0, 0), SpriteEffects.FlipHorizontally, 0);
             }
             else
             {
-                spriteBatch.Draw(this.Textures[0], this.Box, null, this.SpriteColor, this.SpriteRotation, new Vector2(0,0), SpriteEffects.None, 0);
+                spriteBatch.Draw(this.Textures[0], this.Box, null, this.SpriteColor, this.SpriteRotation, new Vector2(0, 0), SpriteEffects.None, 0);
             }
             spriteBatch.End();
 

@@ -155,6 +155,16 @@ namespace Retro_Kingdom
 
             if (this.IsEditingEnabled == true)
             {
+                if (ckbs.IsKeyDown(Keys.NumPad0) == true && okbs.IsKeyDown(Keys.NumPad0) == false)
+                {
+                    if (this.DoesMouseHaveSpriteAttached() == false)
+                    {
+                        Sprite tmpSprite = new Sprite(1, 0, 0);
+                        tmpSprite.IsAttachedToMouse = true;
+                        this.AddSpriteToLayer("Static", tmpSprite);
+                    }
+                }
+
                 if (oms.ScrollWheelValue < cms.ScrollWheelValue)
                 {
                     this.Camera.Zoom += 0.1f;
@@ -236,6 +246,9 @@ namespace Retro_Kingdom
                                             if (s.IsAttachedToMouse == false)
                                             {
                                                 s.IsAttachedToMouse = true;
+
+                                                //--IP--
+                                                //this.MoveSpriteToFrontOfLayer(WhichLayerContainsSprite(s), s);
                                             }
                                             else
                                             {
@@ -420,6 +433,41 @@ namespace Retro_Kingdom
                     if (s != s2 && s2.Box.Intersects(s.Box) == true)
                     {
                         return true;
+                    }
+                }
+            }
+            return false;
+        }
+
+
+        //--IP--
+        private void MoveSpriteToFrontOfLayer(string layername, Sprite sprite)
+        {
+            if (this.SpriteLayers.ContainsKey(layername) == true)
+            {
+                int spriteindex = SpriteLayers[layername].IndexOf(sprite);
+                Sprite tmpSprite = this.SpriteLayers[layername][spriteindex];
+
+                this.SpriteLayers[layername].RemoveAt(spriteindex);
+                this.SpriteLayers[layername].Add(tmpSprite);
+            }
+        }
+
+        private bool DoesMouseHaveSpriteAttached()
+        {
+            if (this.SpriteLayers.Count > 0)
+            {
+                foreach (KeyValuePair<string, List<Sprite>> kp in SpriteLayers)
+                {
+                    if (kp.Value.Count > 0)
+                    {
+                        foreach (Sprite s in kp.Value)
+                        {
+                            if (s.IsAttachedToMouse == true)
+                            {
+                                return true;
+                            }
+                        }
                     }
                 }
             }
