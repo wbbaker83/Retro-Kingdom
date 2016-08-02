@@ -289,7 +289,13 @@ namespace Retro_Kingdom
                                                 s.Width++;
                                             }
 
-                                            
+                                            //--IP--
+                                            //if (ckbs.IsKeyDown(Keys.OemPeriod) == true)
+                                            //{
+                                            //    this.RemoveSpriteFromLayer(WhichLayerContainsSprite(s), s);
+                                            //}
+
+
 
                                             if (ckbs.IsKeyDown(Keys.R) == true)
                                             {
